@@ -12,6 +12,11 @@ Pytorch >= 1.2
 
 For other libraries, check requirements.txt.
 
+## Warning This Repo Needs Cleaning and Refactoring
+
+## Repo based on
+[Here](https://github.com/cvlab-stonybrook/DM-Count) is the original repo since the interface and the backbone network was different this will not be a fork repo.
+
 ## Getting Started
 1. Dataset download
 
