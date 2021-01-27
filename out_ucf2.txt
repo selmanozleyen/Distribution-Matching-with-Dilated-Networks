@@ -1,0 +1,353 @@
+['/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/1.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/10.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/13.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/15.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/18.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/19.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/2.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/20.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/21.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/23.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/24.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/26.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/27.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/28.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/29.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/3.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/30.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/31.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/32.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/33.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/34.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/35.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/36.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/37.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/38.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/39.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/4.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/40.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/41.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/42.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/43.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/45.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/46.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/47.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/48.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/49.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/5.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/7.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/8.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/9.jpg']
+number of img: 40
+['/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/11.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/12.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/14.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/16.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/17.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/22.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/25.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/44.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/50.jpg', '/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/6.jpg']
+number of img: 10
+log/train -----Epoch 0/1000-----
+log/train Epoch 0 Train, Loss: 436.50, OT Loss: 2.72e-07, Wass Distance: 672.95, OT obj value: 41.81, Count Loss: 255.09, TV Loss: 181.41, MSE: 432.97 MAE: 255.09, Cost 9.3 sec 0
+log/val Epoch 0 Val, MSE: 693.42 MAE: 543.15, Cost 10.8 sec
+save best mse 693.42 mae 543.15 model epoch 0
+log/train -----Epoch 1/1000-----
+log/train Epoch 1 Train, Loss: 228.33, OT Loss: -3.19e-07, Wass Distance: 675.10, OT obj value: 42.40, Count Loss: 47.50, TV Loss: 180.83, MSE: 71.59 MAE: 47.50, Cost 3.4 sec 1
+log/train -----Epoch 2/1000-----
+log/train Epoch 2 Train, Loss: 195.91, OT Loss: -9.37e-07, Wass Distance: 673.94, OT obj value: 66.22, Count Loss: 28.61, TV Loss: 167.30, MSE: 51.99 MAE: 28.61, Cost 3.8 sec 2
+log/train -----Epoch 3/1000-----
+log/train Epoch 3 Train, Loss: 259.10, OT Loss: 4.38e-07, Wass Distance: 679.25, OT obj value: 91.43, Count Loss: 56.36, TV Loss: 202.74, MSE: 87.75 MAE: 56.36, Cost 3.9 sec 3
+log/train -----Epoch 4/1000-----
+log/train Epoch 4 Train, Loss: 192.19, OT Loss: -3.87e-07, Wass Distance: 670.84, OT obj value: 56.75, Count Loss: 29.00, TV Loss: 163.19, MSE: 45.51 MAE: 29.00, Cost 3.9 sec 4
+log/train -----Epoch 5/1000-----
+log/train Epoch 5 Train, Loss: 211.65, OT Loss: 4.57e-07, Wass Distance: 651.76, OT obj value: 54.28, Count Loss: 30.65, TV Loss: 181.00, MSE: 43.94 MAE: 30.65, Cost 4.1 sec 5
+log/val Epoch 5 Val, MSE: 548.88 MAE: 291.51, Cost 2.4 sec
+save best mse 548.88 mae 291.51 model epoch 5
+log/train -----Epoch 6/1000-----
+log/train Epoch 6 Train, Loss: 203.07, OT Loss: -1.39e-07, Wass Distance: 670.60, OT obj value: 61.41, Count Loss: 25.43, TV Loss: 177.64, MSE: 36.78 MAE: 25.43, Cost 4.1 sec 6
+log/train -----Epoch 7/1000-----
+log/train Epoch 7 Train, Loss: 229.02, OT Loss: -4.62e-07, Wass Distance: 672.10, OT obj value: 53.97, Count Loss: 45.41, TV Loss: 183.61, MSE: 63.82 MAE: 45.41, Cost 4.0 sec 7
+log/train -----Epoch 8/1000-----
+log/train Epoch 8 Train, Loss: 234.13, OT Loss: -1.39e-07, Wass Distance: 683.86, OT obj value: 70.43, Count Loss: 36.77, TV Loss: 197.36, MSE: 52.85 MAE: 36.77, Cost 3.9 sec 8
+log/train -----Epoch 9/1000-----
+log/train Epoch 9 Train, Loss: 193.42, OT Loss: -4.53e-07, Wass Distance: 630.18, OT obj value: 36.62, Count Loss: 45.91, TV Loss: 147.51, MSE: 62.22 MAE: 45.91, Cost 3.7 sec 9
+log/train -----Epoch 10/1000-----
+log/train Epoch 10 Train, Loss: 196.04, OT Loss: -2.13e-07, Wass Distance: 659.67, OT obj value: 72.85, Count Loss: 24.89, TV Loss: 171.15, MSE: 36.75 MAE: 24.89, Cost 4.0 sec 10
+log/val Epoch 10 Val, MSE: 495.86 MAE: 418.36, Cost 2.3 sec
+log/train -----Epoch 11/1000-----
+log/train Epoch 11 Train, Loss: 241.90, OT Loss: -8.81e-07, Wass Distance: 672.07, OT obj value: 78.07, Count Loss: 49.94, TV Loss: 191.97, MSE: 117.08 MAE: 49.94, Cost 3.9 sec 11
+log/train -----Epoch 12/1000-----
+log/train Epoch 12 Train, Loss: 187.25, OT Loss: -4.38e-07, Wass Distance: 653.85, OT obj value: 53.02, Count Loss: 33.60, TV Loss: 153.65, MSE: 61.77 MAE: 33.60, Cost 3.7 sec 12
+log/train -----Epoch 13/1000-----
+log/train Epoch 13 Train, Loss: 199.86, OT Loss: 7.57e-07, Wass Distance: 693.05, OT obj value: 56.05, Count Loss: 32.59, TV Loss: 167.27, MSE: 43.48 MAE: 32.59, Cost 3.9 sec 13
+log/train -----Epoch 14/1000-----
+log/train Epoch 14 Train, Loss: 197.99, OT Loss: -9.12e-07, Wass Distance: 639.83, OT obj value: 56.51, Count Loss: 29.79, TV Loss: 168.19, MSE: 38.99 MAE: 29.79, Cost 4.0 sec 14
+log/train -----Epoch 15/1000-----
+log/train Epoch 15 Train, Loss: 190.19, OT Loss: 1.11e-06, Wass Distance: 647.33, OT obj value: 35.13, Count Loss: 32.95, TV Loss: 157.24, MSE: 54.56 MAE: 32.95, Cost 3.9 sec 15
+log/val Epoch 15 Val, MSE: 493.80 MAE: 351.02, Cost 2.3 sec
+save best mse 493.80 mae 351.02 model epoch 15
+log/train -----Epoch 16/1000-----
+log/train Epoch 16 Train, Loss: 208.36, OT Loss: 5.35e-07, Wass Distance: 688.21, OT obj value: 53.05, Count Loss: 37.36, TV Loss: 171.00, MSE: 61.07 MAE: 37.36, Cost 4.0 sec 16
+log/train -----Epoch 17/1000-----
+log/train Epoch 17 Train, Loss: 214.79, OT Loss: 3.43e-07, Wass Distance: 640.47, OT obj value: 50.47, Count Loss: 31.84, TV Loss: 182.96, MSE: 40.81 MAE: 31.84, Cost 3.8 sec 17
+log/train -----Epoch 18/1000-----
+log/train Epoch 18 Train, Loss: 206.61, OT Loss: 5.02e-07, Wass Distance: 673.38, OT obj value: 62.32, Count Loss: 33.28, TV Loss: 173.33, MSE: 46.82 MAE: 33.28, Cost 3.9 sec 18
+log/train -----Epoch 19/1000-----
+log/train Epoch 19 Train, Loss: 199.19, OT Loss: -6.75e-07, Wass Distance: 676.92, OT obj value: 55.50, Count Loss: 38.32, TV Loss: 160.87, MSE: 52.22 MAE: 38.32, Cost 3.9 sec 19
+log/train -----Epoch 20/1000-----
+log/train Epoch 20 Train, Loss: 200.69, OT Loss: -6.84e-07, Wass Distance: 666.42, OT obj value: 53.36, Count Loss: 28.44, TV Loss: 172.25, MSE: 41.25 MAE: 28.44, Cost 4.1 sec 20
+log/val Epoch 20 Val, MSE: 359.48 MAE: 241.16, Cost 2.3 sec
+save best mse 359.48 mae 241.16 model epoch 20
+log/train -----Epoch 21/1000-----
+log/train Epoch 21 Train, Loss: 225.38, OT Loss: 7.30e-08, Wass Distance: 645.02, OT obj value: 58.81, Count Loss: 43.19, TV Loss: 182.18, MSE: 65.05 MAE: 43.19, Cost 4.0 sec 21
+log/train -----Epoch 22/1000-----
+log/train Epoch 22 Train, Loss: 216.32, OT Loss: -9.54e-08, Wass Distance: 624.33, OT obj value: 59.61, Count Loss: 33.00, TV Loss: 183.32, MSE: 59.36 MAE: 33.00, Cost 3.8 sec 22
+log/train -----Epoch 23/1000-----
+log/train Epoch 23 Train, Loss: 239.38, OT Loss: 6.99e-07, Wass Distance: 670.78, OT obj value: 61.11, Count Loss: 60.56, TV Loss: 178.82, MSE: 97.76 MAE: 60.56, Cost 3.8 sec 23
+log/train -----Epoch 24/1000-----
+log/train Epoch 24 Train, Loss: 221.05, OT Loss: -9.02e-07, Wass Distance: 661.98, OT obj value: 50.30, Count Loss: 49.20, TV Loss: 171.85, MSE: 72.42 MAE: 49.20, Cost 3.8 sec 24
+log/train -----Epoch 25/1000-----
+log/train Epoch 25 Train, Loss: 186.35, OT Loss: -8.03e-07, Wass Distance: 667.10, OT obj value: 63.23, Count Loss: 23.22, TV Loss: 163.13, MSE: 34.18 MAE: 23.22, Cost 3.9 sec 25
+log/val Epoch 25 Val, MSE: 367.24 MAE: 332.10, Cost 2.3 sec
+log/train -----Epoch 26/1000-----
+log/train Epoch 26 Train, Loss: 197.64, OT Loss: 2.98e-08, Wass Distance: 689.66, OT obj value: 68.95, Count Loss: 25.14, TV Loss: 172.50, MSE: 40.47 MAE: 25.14, Cost 4.0 sec 26
+log/train -----Epoch 27/1000-----
+log/train Epoch 27 Train, Loss: 252.96, OT Loss: -3.05e-07, Wass Distance: 671.19, OT obj value: 61.00, Count Loss: 62.54, TV Loss: 190.42, MSE: 97.91 MAE: 62.54, Cost 4.1 sec 27
+log/train -----Epoch 28/1000-----
+log/train Epoch 28 Train, Loss: 244.15, OT Loss: 1.80e-06, Wass Distance: 653.86, OT obj value: 70.59, Count Loss: 57.47, TV Loss: 186.67, MSE: 82.04 MAE: 57.47, Cost 4.0 sec 28
+log/train -----Epoch 29/1000-----
+log/train Epoch 29 Train, Loss: 228.81, OT Loss: 2.50e-07, Wass Distance: 660.08, OT obj value: 74.92, Count Loss: 46.41, TV Loss: 182.40, MSE: 66.90 MAE: 46.41, Cost 4.0 sec 29
+log/train -----Epoch 30/1000-----
+log/train Epoch 30 Train, Loss: 232.80, OT Loss: -7.48e-07, Wass Distance: 648.23, OT obj value: 62.45, Count Loss: 40.23, TV Loss: 192.57, MSE: 82.08 MAE: 40.23, Cost 3.9 sec 30
+log/val Epoch 30 Val, MSE: 338.04 MAE: 235.86, Cost 2.2 sec
+save best mse 338.04 mae 235.86 model epoch 30
+log/train -----Epoch 31/1000-----
+log/train Epoch 31 Train, Loss: 189.95, OT Loss: -5.86e-07, Wass Distance: 675.35, OT obj value: 41.51, Count Loss: 29.39, TV Loss: 160.56, MSE: 41.91 MAE: 29.39, Cost 4.1 sec 31
+log/train -----Epoch 32/1000-----
+log/train Epoch 32 Train, Loss: 195.51, OT Loss: -2.88e-07, Wass Distance: 662.09, OT obj value: 45.36, Count Loss: 26.57, TV Loss: 168.94, MSE: 43.38 MAE: 26.57, Cost 4.2 sec 32
+log/train -----Epoch 33/1000-----
+log/train Epoch 33 Train, Loss: 180.91, OT Loss: -7.85e-07, Wass Distance: 671.16, OT obj value: 43.83, Count Loss: 23.94, TV Loss: 156.96, MSE: 37.85 MAE: 23.94, Cost 4.1 sec 33
+log/train -----Epoch 34/1000-----
+log/train Epoch 34 Train, Loss: 196.20, OT Loss: 6.01e-07, Wass Distance: 642.95, OT obj value: 72.66, Count Loss: 22.65, TV Loss: 173.55, MSE: 33.60 MAE: 22.65, Cost 4.1 sec 34
+log/train -----Epoch 35/1000-----
+log/train Epoch 35 Train, Loss: 198.21, OT Loss: -1.12e-06, Wass Distance: 608.59, OT obj value: 61.22, Count Loss: 31.88, TV Loss: 166.33, MSE: 48.39 MAE: 31.88, Cost 3.8 sec 35
+log/val Epoch 35 Val, MSE: 332.54 MAE: 250.15, Cost 2.3 sec
+log/train -----Epoch 36/1000-----
+log/train Epoch 36 Train, Loss: 215.90, OT Loss: -1.06e-07, Wass Distance: 649.60, OT obj value: 62.66, Count Loss: 36.74, TV Loss: 179.16, MSE: 55.61 MAE: 36.74, Cost 3.8 sec 36
+log/train -----Epoch 37/1000-----
+log/train Epoch 37 Train, Loss: 176.44, OT Loss: 4.38e-07, Wass Distance: 664.75, OT obj value: 64.97, Count Loss: 29.71, TV Loss: 146.73, MSE: 50.97 MAE: 29.71, Cost 4.0 sec 37
+log/train -----Epoch 38/1000-----
+log/train Epoch 38 Train, Loss: 190.29, OT Loss: 1.46e-06, Wass Distance: 649.10, OT obj value: 54.79, Count Loss: 24.09, TV Loss: 166.20, MSE: 32.48 MAE: 24.09, Cost 4.0 sec 38
+log/train -----Epoch 39/1000-----
+log/train Epoch 39 Train, Loss: 202.75, OT Loss: 2.57e-06, Wass Distance: 640.23, OT obj value: 57.71, Count Loss: 36.91, TV Loss: 165.84, MSE: 57.81 MAE: 36.91, Cost 3.7 sec 39
+log/train -----Epoch 40/1000-----
+log/train Epoch 40 Train, Loss: 193.94, OT Loss: -1.20e-06, Wass Distance: 649.37, OT obj value: 55.63, Count Loss: 27.40, TV Loss: 166.53, MSE: 42.41 MAE: 27.40, Cost 3.8 sec 40
+log/val Epoch 40 Val, MSE: 257.56 MAE: 208.03, Cost 2.3 sec
+save best mse 257.56 mae 208.03 model epoch 40
+log/train -----Epoch 41/1000-----
+log/train Epoch 41 Train, Loss: 178.28, OT Loss: 6.51e-07, Wass Distance: 643.36, OT obj value: 63.12, Count Loss: 16.86, TV Loss: 161.41, MSE: 26.80 MAE: 16.86, Cost 4.1 sec 41
+log/train -----Epoch 42/1000-----
+log/train Epoch 42 Train, Loss: 213.70, OT Loss: -8.05e-07, Wass Distance: 623.88, OT obj value: 57.85, Count Loss: 32.72, TV Loss: 180.98, MSE: 57.19 MAE: 32.72, Cost 3.9 sec 42
+log/train -----Epoch 43/1000-----
+log/train Epoch 43 Train, Loss: 183.25, OT Loss: -2.64e-07, Wass Distance: 649.52, OT obj value: 66.07, Count Loss: 25.20, TV Loss: 158.05, MSE: 36.23 MAE: 25.20, Cost 4.0 sec 43
+log/train -----Epoch 44/1000-----
+log/train Epoch 44 Train, Loss: 214.56, OT Loss: 5.83e-07, Wass Distance: 622.68, OT obj value: 51.79, Count Loss: 35.56, TV Loss: 178.99, MSE: 57.01 MAE: 35.56, Cost 3.9 sec 44
+log/train -----Epoch 45/1000-----
+log/train Epoch 45 Train, Loss: 182.90, OT Loss: -3.59e-07, Wass Distance: 653.65, OT obj value: 60.85, Count Loss: 30.26, TV Loss: 152.64, MSE: 42.86 MAE: 30.26, Cost 4.1 sec 45
+log/val Epoch 45 Val, MSE: 312.18 MAE: 212.92, Cost 2.3 sec
+log/train -----Epoch 46/1000-----
+log/train Epoch 46 Train, Loss: 193.53, OT Loss: -5.36e-08, Wass Distance: 657.70, OT obj value: 47.00, Count Loss: 36.92, TV Loss: 156.62, MSE: 65.99 MAE: 36.92, Cost 4.0 sec 46
+log/train -----Epoch 47/1000-----
+log/train Epoch 47 Train, Loss: 204.92, OT Loss: 1.46e-06, Wass Distance: 605.53, OT obj value: 63.55, Count Loss: 22.23, TV Loss: 182.69, MSE: 39.02 MAE: 22.23, Cost 3.9 sec 47
+log/train -----Epoch 48/1000-----
+log/train Epoch 48 Train, Loss: 192.42, OT Loss: -9.34e-07, Wass Distance: 653.58, OT obj value: 64.25, Count Loss: 25.04, TV Loss: 167.37, MSE: 36.99 MAE: 25.04, Cost 3.9 sec 48
+log/train -----Epoch 49/1000-----
+log/train Epoch 49 Train, Loss: 178.49, OT Loss: -3.95e-07, Wass Distance: 650.45, OT obj value: 51.63, Count Loss: 21.18, TV Loss: 157.32, MSE: 30.67 MAE: 21.18, Cost 4.0 sec 49
+log/train -----Epoch 50/1000-----
+log/train Epoch 50 Train, Loss: 209.03, OT Loss: -7.08e-08, Wass Distance: 633.77, OT obj value: 59.01, Count Loss: 34.74, TV Loss: 174.28, MSE: 60.73 MAE: 34.74, Cost 4.0 sec 50
+log/val Epoch 50 Val, MSE: 392.24 MAE: 289.51, Cost 2.2 sec
+log/train -----Epoch 51/1000-----
+log/train Epoch 51 Train, Loss: 190.18, OT Loss: 2.83e-07, Wass Distance: 647.18, OT obj value: 62.58, Count Loss: 26.86, TV Loss: 163.32, MSE: 41.00 MAE: 26.86, Cost 3.9 sec 51
+log/train -----Epoch 52/1000-----
+log/train Epoch 52 Train, Loss: 193.11, OT Loss: 1.46e-06, Wass Distance: 650.31, OT obj value: 48.58, Count Loss: 28.58, TV Loss: 164.53, MSE: 39.94 MAE: 28.58, Cost 4.0 sec 52
+log/train -----Epoch 53/1000-----
+log/train Epoch 53 Train, Loss: 189.37, OT Loss: -5.22e-07, Wass Distance: 644.93, OT obj value: 61.73, Count Loss: 20.19, TV Loss: 169.18, MSE: 27.92 MAE: 20.19, Cost 4.1 sec 53
+log/train -----Epoch 54/1000-----
+log/train Epoch 54 Train, Loss: 201.32, OT Loss: -5.30e-07, Wass Distance: 650.61, OT obj value: 56.43, Count Loss: 32.50, TV Loss: 168.82, MSE: 51.15 MAE: 32.50, Cost 4.0 sec 54
+log/train -----Epoch 55/1000-----
+log/train Epoch 55 Train, Loss: 182.22, OT Loss: -6.26e-08, Wass Distance: 612.28, OT obj value: 55.59, Count Loss: 23.07, TV Loss: 159.15, MSE: 32.83 MAE: 23.07, Cost 3.9 sec 55
+log/val Epoch 55 Val, MSE: 412.78 MAE: 300.80, Cost 2.2 sec
+log/train -----Epoch 56/1000-----
+log/train Epoch 56 Train, Loss: 194.70, OT Loss: 1.04e-06, Wass Distance: 680.49, OT obj value: 45.42, Count Loss: 30.63, TV Loss: 164.08, MSE: 42.93 MAE: 30.63, Cost 4.0 sec 56
+log/train -----Epoch 57/1000-----
+log/train Epoch 57 Train, Loss: 184.11, OT Loss: 4.77e-08, Wass Distance: 657.49, OT obj value: 55.84, Count Loss: 25.17, TV Loss: 158.95, MSE: 45.98 MAE: 25.17, Cost 4.0 sec 57
+log/train -----Epoch 58/1000-----
+log/train Epoch 58 Train, Loss: 210.52, OT Loss: 1.95e-07, Wass Distance: 700.06, OT obj value: 72.12, Count Loss: 46.55, TV Loss: 163.97, MSE: 61.46 MAE: 46.55, Cost 4.0 sec 58
+log/train -----Epoch 59/1000-----
+log/train Epoch 59 Train, Loss: 192.90, OT Loss: -5.39e-07, Wass Distance: 662.45, OT obj value: 67.19, Count Loss: 21.93, TV Loss: 170.97, MSE: 35.60 MAE: 21.93, Cost 4.0 sec 59
+log/train -----Epoch 60/1000-----
+log/train Epoch 60 Train, Loss: 201.22, OT Loss: -2.12e-07, Wass Distance: 640.57, OT obj value: 48.57, Count Loss: 29.86, TV Loss: 171.36, MSE: 44.91 MAE: 29.86, Cost 4.0 sec 60
+log/val Epoch 60 Val, MSE: 526.81 MAE: 341.96, Cost 2.2 sec
+log/train -----Epoch 61/1000-----
+log/train Epoch 61 Train, Loss: 197.45, OT Loss: 2.70e-07, Wass Distance: 610.46, OT obj value: 50.61, Count Loss: 23.19, TV Loss: 174.27, MSE: 35.69 MAE: 23.19, Cost 4.0 sec 61
+log/train -----Epoch 62/1000-----
+log/train Epoch 62 Train, Loss: 210.98, OT Loss: 2.83e-08, Wass Distance: 695.12, OT obj value: 58.15, Count Loss: 39.54, TV Loss: 171.44, MSE: 57.86 MAE: 39.54, Cost 4.0 sec 62
+log/train -----Epoch 63/1000-----
+log/train Epoch 63 Train, Loss: 185.24, OT Loss: 6.03e-08, Wass Distance: 663.65, OT obj value: 45.26, Count Loss: 25.97, TV Loss: 159.26, MSE: 37.84 MAE: 25.97, Cost 4.0 sec 63
+log/train -----Epoch 64/1000-----
+log/train Epoch 64 Train, Loss: 213.05, OT Loss: 3.56e-07, Wass Distance: 660.51, OT obj value: 49.43, Count Loss: 37.81, TV Loss: 175.24, MSE: 52.21 MAE: 37.81, Cost 4.0 sec 64
+log/train -----Epoch 65/1000-----
+log/train Epoch 65 Train, Loss: 164.81, OT Loss: 6.52e-08, Wass Distance: 621.99, OT obj value: 52.29, Count Loss: 17.03, TV Loss: 147.78, MSE: 22.50 MAE: 17.03, Cost 3.9 sec 65
+log/val Epoch 65 Val, MSE: 271.20 MAE: 248.43, Cost 2.2 sec
+log/train -----Epoch 66/1000-----
+log/train Epoch 66 Train, Loss: 187.79, OT Loss: -8.14e-07, Wass Distance: 662.49, OT obj value: 56.97, Count Loss: 35.77, TV Loss: 152.02, MSE: 54.76 MAE: 35.77, Cost 4.0 sec 66
+log/train -----Epoch 67/1000-----
+log/train Epoch 67 Train, Loss: 183.55, OT Loss: -1.43e-06, Wass Distance: 632.25, OT obj value: 62.99, Count Loss: 20.51, TV Loss: 163.04, MSE: 30.28 MAE: 20.51, Cost 4.0 sec 67
+log/train -----Epoch 68/1000-----
+log/train Epoch 68 Train, Loss: 178.12, OT Loss: -3.62e-07, Wass Distance: 647.96, OT obj value: 79.03, Count Loss: 16.33, TV Loss: 161.80, MSE: 22.25 MAE: 16.33, Cost 4.0 sec 68
+log/train -----Epoch 69/1000-----
+log/train Epoch 69 Train, Loss: 161.53, OT Loss: -6.66e-07, Wass Distance: 636.64, OT obj value: 61.45, Count Loss: 16.49, TV Loss: 145.04, MSE: 25.23 MAE: 16.49, Cost 3.9 sec 69
+log/train -----Epoch 70/1000-----
+log/train Epoch 70 Train, Loss: 159.28, OT Loss: 2.72e-07, Wass Distance: 614.84, OT obj value: 35.13, Count Loss: 17.88, TV Loss: 141.39, MSE: 23.73 MAE: 17.88, Cost 3.8 sec 70
+log/val Epoch 70 Val, MSE: 349.55 MAE: 251.33, Cost 2.2 sec
+log/train -----Epoch 71/1000-----
+log/train Epoch 71 Train, Loss: 167.00, OT Loss: -2.89e-07, Wass Distance: 611.49, OT obj value: 54.16, Count Loss: 20.50, TV Loss: 146.50, MSE: 28.36 MAE: 20.50, Cost 3.9 sec 71
+log/train -----Epoch 72/1000-----
+log/train Epoch 72 Train, Loss: 244.23, OT Loss: -6.14e-07, Wass Distance: 637.39, OT obj value: 70.00, Count Loss: 53.82, TV Loss: 190.41, MSE: 79.81 MAE: 53.82, Cost 4.0 sec 72
+log/train -----Epoch 73/1000-----
+log/train Epoch 73 Train, Loss: 192.41, OT Loss: -9.21e-07, Wass Distance: 634.01, OT obj value: 62.54, Count Loss: 23.55, TV Loss: 168.86, MSE: 31.50 MAE: 23.55, Cost 4.0 sec 73
+log/train -----Epoch 74/1000-----
+log/train Epoch 74 Train, Loss: 224.66, OT Loss: -7.91e-07, Wass Distance: 651.90, OT obj value: 79.55, Count Loss: 33.94, TV Loss: 190.72, MSE: 48.27 MAE: 33.94, Cost 4.0 sec 74
+log/train -----Epoch 75/1000-----
+log/train Epoch 75 Train, Loss: 181.10, OT Loss: -5.23e-07, Wass Distance: 632.44, OT obj value: 39.29, Count Loss: 28.14, TV Loss: 152.96, MSE: 40.32 MAE: 28.14, Cost 3.9 sec 75
+log/val Epoch 75 Val, MSE: 283.39 MAE: 220.81, Cost 2.3 sec
+log/train -----Epoch 76/1000-----
+log/train Epoch 76 Train, Loss: 200.58, OT Loss: -1.04e-06, Wass Distance: 629.04, OT obj value: 54.73, Count Loss: 39.03, TV Loss: 161.55, MSE: 57.07 MAE: 39.03, Cost 4.1 sec 76
+log/train -----Epoch 77/1000-----
+log/train Epoch 77 Train, Loss: 205.57, OT Loss: 1.63e-06, Wass Distance: 641.20, OT obj value: 61.85, Count Loss: 32.65, TV Loss: 172.92, MSE: 49.09 MAE: 32.65, Cost 4.3 sec 77
+log/train -----Epoch 78/1000-----
+log/train Epoch 78 Train, Loss: 219.88, OT Loss: 1.27e-06, Wass Distance: 669.85, OT obj value: 75.95, Count Loss: 28.39, TV Loss: 191.49, MSE: 42.37 MAE: 28.39, Cost 4.0 sec 78
+log/train -----Epoch 79/1000-----
+log/train Epoch 79 Train, Loss: 191.40, OT Loss: 1.17e-06, Wass Distance: 606.71, OT obj value: 58.65, Count Loss: 30.14, TV Loss: 161.26, MSE: 46.39 MAE: 30.14, Cost 4.1 sec 79
+log/train -----Epoch 80/1000-----
+log/train Epoch 80 Train, Loss: 188.72, OT Loss: 6.57e-07, Wass Distance: 643.28, OT obj value: 66.27, Count Loss: 17.92, TV Loss: 170.80, MSE: 29.78 MAE: 17.92, Cost 4.0 sec 80
+log/val Epoch 80 Val, MSE: 303.55 MAE: 255.79, Cost 2.3 sec
+log/train -----Epoch 81/1000-----
+log/train Epoch 81 Train, Loss: 195.83, OT Loss: 1.05e-06, Wass Distance: 618.94, OT obj value: 62.81, Count Loss: 15.77, TV Loss: 180.06, MSE: 22.96 MAE: 15.77, Cost 3.9 sec 81
+log/train -----Epoch 82/1000-----
+log/train Epoch 82 Train, Loss: 184.04, OT Loss: -6.17e-07, Wass Distance: 645.60, OT obj value: 51.63, Count Loss: 25.68, TV Loss: 158.36, MSE: 36.61 MAE: 25.68, Cost 3.8 sec 82
+log/train -----Epoch 83/1000-----
+log/train Epoch 83 Train, Loss: 180.66, OT Loss: 3.38e-07, Wass Distance: 620.38, OT obj value: 63.40, Count Loss: 17.82, TV Loss: 162.85, MSE: 23.60 MAE: 17.82, Cost 4.1 sec 83
+log/train -----Epoch 84/1000-----
+log/train Epoch 84 Train, Loss: 204.98, OT Loss: -1.52e-07, Wass Distance: 604.88, OT obj value: 61.98, Count Loss: 30.16, TV Loss: 174.81, MSE: 45.58 MAE: 30.16, Cost 3.9 sec 84
+log/train -----Epoch 85/1000-----
+log/train Epoch 85 Train, Loss: 179.90, OT Loss: 3.28e-07, Wass Distance: 617.47, OT obj value: 47.59, Count Loss: 18.06, TV Loss: 161.84, MSE: 29.77 MAE: 18.06, Cost 4.0 sec 85
+log/val Epoch 85 Val, MSE: 376.74 MAE: 283.61, Cost 2.4 sec
+log/train -----Epoch 86/1000-----
+log/train Epoch 86 Train, Loss: 180.50, OT Loss: 6.37e-07, Wass Distance: 642.23, OT obj value: 45.56, Count Loss: 28.94, TV Loss: 151.56, MSE: 41.87 MAE: 28.94, Cost 3.8 sec 86
+log/train -----Epoch 87/1000-----
+log/train Epoch 87 Train, Loss: 193.72, OT Loss: 6.71e-07, Wass Distance: 692.33, OT obj value: 61.11, Count Loss: 29.52, TV Loss: 164.20, MSE: 42.43 MAE: 29.52, Cost 3.8 sec 87
+log/train -----Epoch 88/1000-----
+log/train Epoch 88 Train, Loss: 195.77, OT Loss: -6.59e-08, Wass Distance: 688.38, OT obj value: 49.70, Count Loss: 30.77, TV Loss: 165.00, MSE: 45.98 MAE: 30.77, Cost 3.8 sec 88
+log/train -----Epoch 89/1000-----
+log/train Epoch 89 Train, Loss: 167.13, OT Loss: 2.23e-07, Wass Distance: 680.85, OT obj value: 55.97, Count Loss: 17.43, TV Loss: 149.70, MSE: 23.79 MAE: 17.43, Cost 3.9 sec 89
+log/train -----Epoch 90/1000-----
+log/train Epoch 90 Train, Loss: 181.10, OT Loss: 3.56e-07, Wass Distance: 655.60, OT obj value: 53.92, Count Loss: 20.91, TV Loss: 160.19, MSE: 29.87 MAE: 20.91, Cost 4.0 sec 90
+log/val Epoch 90 Val, MSE: 544.26 MAE: 390.04, Cost 2.3 sec
+log/train -----Epoch 91/1000-----
+log/train Epoch 91 Train, Loss: 196.87, OT Loss: 1.52e-07, Wass Distance: 610.31, OT obj value: 66.89, Count Loss: 22.24, TV Loss: 174.63, MSE: 32.65 MAE: 22.24, Cost 4.0 sec 91
+log/train -----Epoch 92/1000-----
+log/train Epoch 92 Train, Loss: 186.81, OT Loss: -6.69e-07, Wass Distance: 650.28, OT obj value: 64.76, Count Loss: 22.63, TV Loss: 164.18, MSE: 37.64 MAE: 22.63, Cost 3.9 sec 92
+log/train -----Epoch 93/1000-----
+log/train Epoch 93 Train, Loss: 176.99, OT Loss: 9.67e-07, Wass Distance: 659.37, OT obj value: 53.69, Count Loss: 18.60, TV Loss: 158.39, MSE: 25.74 MAE: 18.60, Cost 3.9 sec 93
+log/train -----Epoch 94/1000-----
+log/train Epoch 94 Train, Loss: 213.82, OT Loss: -1.27e-06, Wass Distance: 642.98, OT obj value: 68.94, Count Loss: 32.04, TV Loss: 181.77, MSE: 47.28 MAE: 32.04, Cost 3.9 sec 94
+log/train -----Epoch 95/1000-----
+log/train Epoch 95 Train, Loss: 205.74, OT Loss: -1.45e-06, Wass Distance: 657.50, OT obj value: 62.70, Count Loss: 35.01, TV Loss: 170.73, MSE: 51.09 MAE: 35.01, Cost 3.9 sec 95
+log/val Epoch 95 Val, MSE: 770.21 MAE: 467.31, Cost 2.2 sec
+log/train -----Epoch 96/1000-----
+log/train Epoch 96 Train, Loss: 170.40, OT Loss: 7.23e-08, Wass Distance: 690.85, OT obj value: 65.60, Count Loss: 18.60, TV Loss: 151.80, MSE: 27.97 MAE: 18.60, Cost 3.9 sec 96
+log/train -----Epoch 97/1000-----
+log/train Epoch 97 Train, Loss: 185.34, OT Loss: 1.06e-07, Wass Distance: 684.67, OT obj value: 50.16, Count Loss: 22.32, TV Loss: 163.02, MSE: 37.36 MAE: 22.32, Cost 4.0 sec 97
+log/train -----Epoch 98/1000-----
+log/train Epoch 98 Train, Loss: 199.51, OT Loss: 8.34e-07, Wass Distance: 634.59, OT obj value: 36.13, Count Loss: 39.23, TV Loss: 160.28, MSE: 64.55 MAE: 39.23, Cost 4.0 sec 98
+log/train -----Epoch 99/1000-----
+log/train Epoch 99 Train, Loss: 198.79, OT Loss: -4.58e-07, Wass Distance: 582.90, OT obj value: 52.67, Count Loss: 29.72, TV Loss: 169.07, MSE: 42.42 MAE: 29.72, Cost 3.8 sec 99
+log/train -----Epoch 100/1000-----
+log/train Epoch 100 Train, Loss: 187.92, OT Loss: -4.50e-07, Wass Distance: 607.72, OT obj value: 57.15, Count Loss: 26.86, TV Loss: 161.06, MSE: 40.65 MAE: 26.86, Cost 3.9 sec 100
+log/val Epoch 100 Val, MSE: 454.29 MAE: 286.67, Cost 2.3 sec
+log/train -----Epoch 101/1000-----
+log/train Epoch 101 Train, Loss: 190.20, OT Loss: -8.69e-07, Wass Distance: 606.03, OT obj value: 60.18, Count Loss: 31.09, TV Loss: 159.11, MSE: 49.03 MAE: 31.09, Cost 3.9 sec 101
+log/train -----Epoch 102/1000-----
+log/train Epoch 102 Train, Loss: 216.71, OT Loss: -3.57e-07, Wass Distance: 642.04, OT obj value: 66.65, Count Loss: 39.92, TV Loss: 176.80, MSE: 56.82 MAE: 39.92, Cost 3.8 sec 102
+log/train -----Epoch 103/1000-----
+log/train Epoch 103 Train, Loss: 186.20, OT Loss: -4.28e-07, Wass Distance: 664.23, OT obj value: 53.56, Count Loss: 21.51, TV Loss: 164.69, MSE: 29.85 MAE: 21.51, Cost 4.0 sec 103
+log/train -----Epoch 104/1000-----
+log/train Epoch 104 Train, Loss: 182.08, OT Loss: -7.45e-10, Wass Distance: 635.73, OT obj value: 50.28, Count Loss: 19.28, TV Loss: 162.80, MSE: 25.50 MAE: 19.28, Cost 4.3 sec 104
+log/train -----Epoch 105/1000-----
+log/train Epoch 105 Train, Loss: 197.33, OT Loss: -1.92e-07, Wass Distance: 639.49, OT obj value: 57.49, Count Loss: 27.87, TV Loss: 169.45, MSE: 49.94 MAE: 27.87, Cost 4.1 sec 105
+log/val Epoch 105 Val, MSE: 399.41 MAE: 269.72, Cost 2.5 sec
+log/train -----Epoch 106/1000-----
+log/train Epoch 106 Train, Loss: 218.31, OT Loss: 7.54e-07, Wass Distance: 646.63, OT obj value: 61.14, Count Loss: 34.42, TV Loss: 183.89, MSE: 50.33 MAE: 34.42, Cost 4.3 sec 106
+log/train -----Epoch 107/1000-----
+log/train Epoch 107 Train, Loss: 197.81, OT Loss: 6.66e-07, Wass Distance: 649.73, OT obj value: 56.78, Count Loss: 30.72, TV Loss: 167.09, MSE: 44.25 MAE: 30.72, Cost 4.1 sec 107
+log/train -----Epoch 108/1000-----
+log/train Epoch 108 Train, Loss: 198.37, OT Loss: -1.08e-06, Wass Distance: 654.43, OT obj value: 55.65, Count Loss: 27.36, TV Loss: 171.01, MSE: 40.57 MAE: 27.36, Cost 4.3 sec 108
+log/train -----Epoch 109/1000-----
+log/train Epoch 109 Train, Loss: 215.12, OT Loss: 1.99e-07, Wass Distance: 698.26, OT obj value: 49.37, Count Loss: 36.95, TV Loss: 178.17, MSE: 57.34 MAE: 36.95, Cost 4.3 sec 109
+log/train -----Epoch 110/1000-----
+log/train Epoch 110 Train, Loss: 192.40, OT Loss: 7.03e-07, Wass Distance: 653.34, OT obj value: 62.26, Count Loss: 21.75, TV Loss: 170.65, MSE: 31.62 MAE: 21.75, Cost 4.1 sec 110
+log/val Epoch 110 Val, MSE: 391.79 MAE: 258.98, Cost 2.2 sec
+log/train -----Epoch 111/1000-----
+log/train Epoch 111 Train, Loss: 194.06, OT Loss: 1.66e-06, Wass Distance: 632.37, OT obj value: 55.25, Count Loss: 26.96, TV Loss: 167.10, MSE: 40.60 MAE: 26.96, Cost 4.0 sec 111
+log/train -----Epoch 112/1000-----
+log/train Epoch 112 Train, Loss: 175.45, OT Loss: -7.18e-07, Wass Distance: 635.18, OT obj value: 39.48, Count Loss: 16.96, TV Loss: 158.49, MSE: 27.31 MAE: 16.96, Cost 4.0 sec 112
+log/train -----Epoch 113/1000-----
+log/train Epoch 113 Train, Loss: 195.29, OT Loss: 2.62e-07, Wass Distance: 644.45, OT obj value: 72.84, Count Loss: 25.16, TV Loss: 170.13, MSE: 40.63 MAE: 25.16, Cost 4.1 sec 113
+log/train -----Epoch 114/1000-----
+log/train Epoch 114 Train, Loss: 193.77, OT Loss: -1.32e-06, Wass Distance: 615.84, OT obj value: 75.86, Count Loss: 17.40, TV Loss: 176.37, MSE: 26.47 MAE: 17.40, Cost 4.2 sec 114
+log/train -----Epoch 115/1000-----
+log/train Epoch 115 Train, Loss: 201.54, OT Loss: 6.66e-07, Wass Distance: 623.42, OT obj value: 67.06, Count Loss: 29.37, TV Loss: 172.17, MSE: 39.01 MAE: 29.37, Cost 3.9 sec 115
+log/val Epoch 115 Val, MSE: 346.99 MAE: 255.31, Cost 2.4 sec
+log/train -----Epoch 116/1000-----
+log/train Epoch 116 Train, Loss: 172.27, OT Loss: -7.33e-07, Wass Distance: 676.70, OT obj value: 65.33, Count Loss: 21.87, TV Loss: 150.40, MSE: 34.44 MAE: 21.87, Cost 4.3 sec 116
+log/train -----Epoch 117/1000-----
+log/train Epoch 117 Train, Loss: 194.33, OT Loss: -3.99e-07, Wass Distance: 621.75, OT obj value: 65.37, Count Loss: 23.36, TV Loss: 170.98, MSE: 31.16 MAE: 23.36, Cost 4.0 sec 117
+log/train -----Epoch 118/1000-----
+log/train Epoch 118 Train, Loss: 189.73, OT Loss: -6.24e-07, Wass Distance: 643.44, OT obj value: 57.46, Count Loss: 22.56, TV Loss: 167.17, MSE: 33.80 MAE: 22.56, Cost 4.2 sec 118
+log/train -----Epoch 119/1000-----
+log/train Epoch 119 Train, Loss: 174.76, OT Loss: -3.17e-07, Wass Distance: 592.11, OT obj value: 57.16, Count Loss: 22.13, TV Loss: 152.63, MSE: 34.60 MAE: 22.13, Cost 4.2 sec 119
+log/train -----Epoch 120/1000-----
+log/train Epoch 120 Train, Loss: 222.86, OT Loss: 4.62e-07, Wass Distance: 620.82, OT obj value: 67.23, Count Loss: 40.72, TV Loss: 182.14, MSE: 55.87 MAE: 40.72, Cost 4.2 sec 120
+log/val Epoch 120 Val, MSE: 470.70 MAE: 331.23, Cost 2.3 sec
+log/train -----Epoch 121/1000-----
+log/train Epoch 121 Train, Loss: 190.22, OT Loss: 3.05e-07, Wass Distance: 630.50, OT obj value: 55.70, Count Loss: 24.64, TV Loss: 165.57, MSE: 35.02 MAE: 24.64, Cost 4.0 sec 121
+log/train -----Epoch 122/1000-----
+log/train Epoch 122 Train, Loss: 184.06, OT Loss: -1.48e-06, Wass Distance: 641.01, OT obj value: 61.74, Count Loss: 23.84, TV Loss: 160.22, MSE: 46.07 MAE: 23.84, Cost 4.1 sec 122
+log/train -----Epoch 123/1000-----
+log/train Epoch 123 Train, Loss: 177.98, OT Loss: 7.29e-07, Wass Distance: 643.23, OT obj value: 57.83, Count Loss: 19.69, TV Loss: 158.29, MSE: 32.59 MAE: 19.69, Cost 4.1 sec 123
+log/train -----Epoch 124/1000-----
+log/train Epoch 124 Train, Loss: 175.31, OT Loss: -5.79e-07, Wass Distance: 607.77, OT obj value: 47.56, Count Loss: 25.83, TV Loss: 149.48, MSE: 43.54 MAE: 25.83, Cost 4.0 sec 124
+log/train -----Epoch 125/1000-----
+log/train Epoch 125 Train, Loss: 186.20, OT Loss: 1.56e-07, Wass Distance: 633.42, OT obj value: 56.99, Count Loss: 27.08, TV Loss: 159.12, MSE: 45.52 MAE: 27.08, Cost 4.2 sec 125
+log/val Epoch 125 Val, MSE: 333.55 MAE: 247.20, Cost 2.2 sec
+log/train -----Epoch 126/1000-----
+log/train Epoch 126 Train, Loss: 177.22, OT Loss: 6.74e-07, Wass Distance: 653.68, OT obj value: 56.48, Count Loss: 12.31, TV Loss: 164.91, MSE: 18.57 MAE: 12.31, Cost 3.9 sec 126
+log/train -----Epoch 127/1000-----
+log/train Epoch 127 Train, Loss: 175.83, OT Loss: 2.32e-07, Wass Distance: 658.70, OT obj value: 54.47, Count Loss: 17.87, TV Loss: 157.96, MSE: 32.15 MAE: 17.87, Cost 3.9 sec 127
+log/train -----Epoch 128/1000-----
+log/train Epoch 128 Train, Loss: 192.83, OT Loss: 7.22e-07, Wass Distance: 659.27, OT obj value: 61.51, Count Loss: 26.65, TV Loss: 166.17, MSE: 37.12 MAE: 26.65, Cost 4.0 sec 128
+log/train -----Epoch 129/1000-----
+log/train Epoch 129 Train, Loss: 178.73, OT Loss: 4.62e-07, Wass Distance: 589.99, OT obj value: 64.61, Count Loss: 19.75, TV Loss: 158.98, MSE: 32.22 MAE: 19.75, Cost 3.7 sec 129
+log/train -----Epoch 130/1000-----
+log/train Epoch 130 Train, Loss: 182.12, OT Loss: 4.77e-07, Wass Distance: 621.23, OT obj value: 48.78, Count Loss: 25.38, TV Loss: 156.74, MSE: 40.13 MAE: 25.38, Cost 4.0 sec 130
+log/val Epoch 130 Val, MSE: 272.76 MAE: 198.99, Cost 2.3 sec
+log/train -----Epoch 131/1000-----
+log/train Epoch 131 Train, Loss: 179.71, OT Loss: -5.35e-07, Wass Distance: 652.41, OT obj value: 48.62, Count Loss: 24.52, TV Loss: 155.19, MSE: 36.05 MAE: 24.52, Cost 3.9 sec 131
+log/train -----Epoch 132/1000-----
+log/train Epoch 132 Train, Loss: 180.11, OT Loss: 1.75e-06, Wass Distance: 613.73, OT obj value: 57.11, Count Loss: 18.56, TV Loss: 161.56, MSE: 35.37 MAE: 18.56, Cost 3.8 sec 132
+log/train -----Epoch 133/1000-----
+log/train Epoch 133 Train, Loss: 191.41, OT Loss: 1.91e-06, Wass Distance: 645.33, OT obj value: 70.98, Count Loss: 25.18, TV Loss: 166.24, MSE: 37.64 MAE: 25.18, Cost 4.0 sec 133
+log/train -----Epoch 134/1000-----
+log/train Epoch 134 Train, Loss: 230.95, OT Loss: -5.11e-07, Wass Distance: 641.29, OT obj value: 61.13, Count Loss: 31.59, TV Loss: 199.36, MSE: 49.83 MAE: 31.59, Cost 4.1 sec 134
+log/train -----Epoch 135/1000-----
+log/train Epoch 135 Train, Loss: 198.05, OT Loss: -1.13e-06, Wass Distance: 597.54, OT obj value: 53.05, Count Loss: 27.70, TV Loss: 170.34, MSE: 50.95 MAE: 27.70, Cost 4.1 sec 135
+log/val Epoch 135 Val, MSE: 553.34 MAE: 316.91, Cost 2.3 sec
+log/train -----Epoch 136/1000-----
+log/train Epoch 136 Train, Loss: 205.33, OT Loss: 2.95e-07, Wass Distance: 644.53, OT obj value: 52.05, Count Loss: 24.31, TV Loss: 181.02, MSE: 31.46 MAE: 24.31, Cost 3.9 sec 136
+log/train -----Epoch 137/1000-----
+log/train Epoch 137 Train, Loss: 185.35, OT Loss: -4.92e-07, Wass Distance: 635.79, OT obj value: 49.95, Count Loss: 18.20, TV Loss: 167.14, MSE: 28.89 MAE: 18.20, Cost 3.7 sec 137
+log/train -----Epoch 138/1000-----
+log/train Epoch 138 Train, Loss: 178.51, OT Loss: 1.28e-06, Wass Distance: 659.30, OT obj value: 52.26, Count Loss: 20.04, TV Loss: 158.48, MSE: 37.13 MAE: 20.04, Cost 3.9 sec 138
+log/train -----Epoch 139/1000-----
+log/train Epoch 139 Train, Loss: 203.95, OT Loss: -4.49e-07, Wass Distance: 646.35, OT obj value: 61.25, Count Loss: 31.37, TV Loss: 172.57, MSE: 48.99 MAE: 31.37, Cost 3.9 sec 139
+log/train -----Epoch 140/1000-----
+log/train Epoch 140 Train, Loss: 184.28, OT Loss: -1.92e-06, Wass Distance: 583.66, OT obj value: 46.58, Count Loss: 24.90, TV Loss: 159.38, MSE: 32.79 MAE: 24.90, Cost 3.8 sec 140
+log/val Epoch 140 Val, MSE: 494.84 MAE: 335.16, Cost 2.2 sec
+log/train -----Epoch 141/1000-----
+log/train Epoch 141 Train, Loss: 188.58, OT Loss: -1.01e-07, Wass Distance: 605.28, OT obj value: 61.38, Count Loss: 21.33, TV Loss: 167.25, MSE: 30.67 MAE: 21.33, Cost 3.9 sec 141
+log/train -----Epoch 142/1000-----
+log/train Epoch 142 Train, Loss: 210.68, OT Loss: 3.81e-07, Wass Distance: 617.86, OT obj value: 67.86, Count Loss: 33.63, TV Loss: 177.05, MSE: 51.18 MAE: 33.63, Cost 4.0 sec 142
+log/train -----Epoch 143/1000-----
+log/train Epoch 143 Train, Loss: 205.20, OT Loss: -8.18e-07, Wass Distance: 651.64, OT obj value: 56.92, Count Loss: 32.72, TV Loss: 172.48, MSE: 41.36 MAE: 32.72, Cost 3.9 sec 143
+log/train -----Epoch 144/1000-----
+log/train Epoch 144 Train, Loss: 187.40, OT Loss: -2.58e-07, Wass Distance: 654.18, OT obj value: 63.04, Count Loss: 17.94, TV Loss: 169.45, MSE: 24.95 MAE: 17.94, Cost 4.0 sec 144
+log/train -----Epoch 145/1000-----
+log/train Epoch 145 Train, Loss: 208.36, OT Loss: -1.03e-07, Wass Distance: 581.33, OT obj value: 48.82, Count Loss: 30.51, TV Loss: 177.84, MSE: 44.62 MAE: 30.51, Cost 3.8 sec 145
+log/val Epoch 145 Val, MSE: 209.00 MAE: 147.16, Cost 2.2 sec
+save best mse 209.00 mae 147.16 model epoch 145
+log/train -----Epoch 146/1000-----
+log/train Epoch 146 Train, Loss: 186.93, OT Loss: -4.66e-07, Wass Distance: 602.65, OT obj value: 29.27, Count Loss: 44.30, TV Loss: 142.63, MSE: 62.51 MAE: 44.30, Cost 3.8 sec 146
+log/train -----Epoch 147/1000-----
+log/train Epoch 147 Train, Loss: 189.21, OT Loss: -6.76e-07, Wass Distance: 631.67, OT obj value: 58.61, Count Loss: 16.17, TV Loss: 173.04, MSE: 25.73 MAE: 16.17, Cost 3.9 sec 147
+log/train -----Epoch 148/1000-----
+log/train Epoch 148 Train, Loss: 167.91, OT Loss: 4.22e-07, Wass Distance: 642.82, OT obj value: 54.32, Count Loss: 25.93, TV Loss: 141.98, MSE: 43.54 MAE: 25.93, Cost 3.9 sec 148
+log/train -----Epoch 149/1000-----
+log/train Epoch 149 Train, Loss: 197.83, OT Loss: -7.73e-07, Wass Distance: 636.38, OT obj value: 64.39, Count Loss: 42.08, TV Loss: 155.75, MSE: 68.55 MAE: 42.08, Cost 3.9 sec 149
+log/train -----Epoch 150/1000-----
+log/train Epoch 150 Train, Loss: 225.16, OT Loss: 9.63e-07, Wass Distance: 632.93, OT obj value: 65.85, Count Loss: 37.76, TV Loss: 187.40, MSE: 58.36 MAE: 37.76, Cost 4.0 sec 150
+log/val Epoch 150 Val, MSE: 419.20 MAE: 351.60, Cost 2.2 sec
+log/train -----Epoch 151/1000-----
+log/train Epoch 151 Train, Loss: 203.47, OT Loss: 8.85e-07, Wass Distance: 616.59, OT obj value: 61.23, Count Loss: 30.19, TV Loss: 173.28, MSE: 46.60 MAE: 30.19, Cost 3.8 sec 151
+log/train -----Epoch 152/1000-----
+log/train Epoch 152 Train, Loss: 219.40, OT Loss: -3.04e-06, Wass Distance: 613.31, OT obj value: 57.23, Count Loss: 36.25, TV Loss: 183.15, MSE: 50.27 MAE: 36.25, Cost 3.8 sec 152
+log/train -----Epoch 153/1000-----
+log/train Epoch 153 Train, Loss: 183.75, OT Loss: 8.31e-07, Wass Distance: 628.45, OT obj value: 51.12, Count Loss: 24.61, TV Loss: 159.14, MSE: 34.34 MAE: 24.61, Cost 3.9 sec 153
+log/train -----Epoch 154/1000-----
+log/train Epoch 154 Train, Loss: 177.47, OT Loss: 3.23e-07, Wass Distance: 618.11, OT obj value: 39.08, Count Loss: 25.28, TV Loss: 152.19, MSE: 37.42 MAE: 25.28, Cost 3.9 sec 154
+log/train -----Epoch 155/1000-----

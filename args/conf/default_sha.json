@@ -1,0 +1,22 @@
+{
+    "out_path":"./",
+    "dataset":"sha",
+    "lr":1e-4,
+    "weight_decay":1e-4,
+    "crop_size":256,
+    "val_epoch":5,
+    "resume":"ckpts/dilres_sha_/sha/input-256_wot-0.1_wtv-0.01_reg-10.0_nIter-100_normCood-0/0127-171421/best_model_58.01_39.43_1.pth",
+    "max_epoch":1000,
+    "val_start":5,
+    "batch_size":15,
+    "device":"0",
+    "num_workers":12,
+    "downsample_ratio":8,
+    "wot":0.1,
+    "wtv":0.01,
+    "reg":10.0,
+    "num_of_iter_in_ot":100,
+    "norm_cood":0,
+    "conf_name":"dilres_sha_",
+    "optimizer":"Adam"
+}

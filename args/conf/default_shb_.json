@@ -1,0 +1,22 @@
+{
+    "out_path":"./",
+    "dataset":"shb",
+    "lr":1e-4,
+    "weight_decay":1e-5,
+    "crop_size":256,
+    "val_epoch":2,
+    "resume":"ckpts/dilres_shb_/shb/input-256_wot-0.01_wtv-0.1_reg-10.0_nIter-100_normCood-0/0127-070602/22_ckpt.tar",
+    "max_epoch":1000,
+    "val_start":20,
+    "batch_size":6,
+    "device":"0",
+    "num_workers":12,
+    "downsample_ratio":8,
+    "wot":0.01,
+    "wtv":0.1,
+    "reg":10.0,
+    "num_of_iter_in_ot":100,
+    "norm_cood":0,
+    "conf_name":"dilres_shb_",
+    "optimizer":"Adam"
+}

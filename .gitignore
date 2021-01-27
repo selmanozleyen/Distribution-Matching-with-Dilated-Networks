@@ -1,0 +1,11 @@
+**/ckpts
+**/__pycache__
+**/runs
+**/_ckpts
+**/dilatedA/**
+**/dilresA/**
+**/conf_logs
+**/pretrained_models
+**/ShanghaiTech/**
+**/temp/**
+**/shanghaitech.zip

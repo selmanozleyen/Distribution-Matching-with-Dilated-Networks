@@ -1,0 +1,22 @@
+{
+    "out_path":"./",
+    "dataset":"ucf1",
+    "lr":1e-4,
+    "weight_decay":1e-5,
+    "crop_size":256,
+    "val_epoch":5,
+    "resume":"ckpts/dilres_ucf_/ucf1/input-256_wot-0.1_wtv-1.0_reg-10.0_nIter-100_normCood-0/0127-074942/best_model_9.pth",
+    "max_epoch":1000,
+    "val_start":0,
+    "batch_size":15,
+    "device":"0",
+    "num_workers":12,
+    "downsample_ratio":8,
+    "wot":0.1,
+    "wtv":0.01,
+    "reg":20.0,
+    "num_of_iter_in_ot":100,
+    "norm_cood":0,
+    "conf_name":"dilres_ucf_",
+    "optimizer":"Adam"
+}

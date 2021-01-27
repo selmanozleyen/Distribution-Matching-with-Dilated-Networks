@@ -1,0 +1,10 @@
+/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/6.jpg
+/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/11.jpg
+/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/7.jpg
+/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/49.jpg
+/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/13.jpg
+/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/33.jpg
+/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/15.jpg
+/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/19.jpg
+/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/35.jpg
+/home/selman/Documents/local_repos/DM-Count/UCF_CC_50/46.jpg
