@@ -1,21 +1,14 @@
 # DM-Count
 
-Official Pytorch implementation of the paper [Distribution Matching for Crowd Counting](https://arxiv.org/pdf/2009.13077.pdf) (NeurIPS, spotlight).
-
-We propose to use Distribution Matching for crowd COUNTing (DM-Count). In DM-Count, we use Optimal Transport (OT) to measure the similarity between the normalized predicted density map and the normalized ground truth density map. To stabilize OT computation, we include a Total Variation loss in our model. We show that the generalization error bound of DM-Count is tighter than that of the Gaussian smoothed methods. Empirically, our method outperforms the state-of-the-art methods by a large margin on four challenging crowd counting datasets: UCF-QNRF, NWPU, ShanghaiTech, and UCF-CC50.
-
-## Prerequisites
-
-Python 3.x
-
-Pytorch >= 1.2
-
-For other libraries, check requirements.txt.
-
 ## Warning This Repo Needs Cleaning and Refactoring
 
 ## Repo based on
 [Here](https://github.com/cvlab-stonybrook/DM-Count) is the original repo since the interface and the backbone network was different this will not be a fork repo.
+
+
+Pytorch implementation of the paper [Distribution Matching for Crowd Counting](https://arxiv.org/pdf/2009.13077.pdf) (NeurIPS, spotlight).
+
+
 
 ## Getting Started
 1. Dataset download
