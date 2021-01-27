@@ -14,7 +14,7 @@ from random import random
 # from hrnet import get_pose_net
 # from models import vgg19
 # from avgg import vgg16_bn
-from myRes import vgg16dres
+from models.vgg16_drnet import vgg16dres
 from losses.ot_loss import OT_Loss
 from utils.pytorch_utils import Save_Handle, AverageMeter
 from torch.utils.tensorboard import SummaryWriter
