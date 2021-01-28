@@ -52,16 +52,9 @@ def predict(inp, model):
     return vis_img, int(count)
 
 
-title = "Distribution Matching for Crowd Counting"
-desc = "A demo of DM-Count, a NeurIPS 2020 paper by Wang et al. Outperforms the state-of-the-art methods by a " \
-       "large margin on four challenging crowd counting datasets: UCF-QNRF, NWPU, ShanghaiTech, and UCF-CC50. " \
-       "This demo uses the QNRF trained model. Try it by uploading an image or clicking on an example " \
-       "(could take up to 20s if running on CPU)."
-examples = [
-    ["examples/ucf/13.jpg"],
-]
+title = "Distribution Matching for Crowd Counting via Dilated Residual Network"
 inputs = [gr.inputs.Image(label="Image of Crowd"),
-          gr.inputs.Dropdown(choices=['sha', 'shb', 'ucf', 'dm_shb'], label='Trained Dataset')]
+          gr.inputs.Dropdown(choices=['sha', 'shb', 'ucf', 'dm_sha', 'dm_sha'], label='Trained Dataset')]
 outputs = [gr.outputs.Image(label="Predicted Density Map"), gr.outputs.Label(label="Predicted Count")]
-gr.Interface(fn=predict, inputs=inputs, outputs=outputs, title=title, description=desc, examples=examples,
+gr.Interface(fn=predict, inputs=inputs, outputs=outputs, title=title, examples=[],
              allow_flagging=False, live=False, allow_screenshot=False).launch(share=True)
