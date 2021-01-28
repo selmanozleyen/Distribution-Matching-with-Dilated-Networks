@@ -1,18 +1,19 @@
-from numpy.core.fromnumeric import _resize_dispatcher
 import torch
 from models.vgg16_drnet import vgg16dres
-import gdown
+from models.vgg16_drnet1 import vgg16dres1
+from models.vgg19 import vgg19
 from PIL import Image
 from torchvision import transforms
 import gradio as gr
 import cv2
 import numpy as np
-import scipy
 
 
 sha_path = "pretrained_models/dr_sha.pth"
-shb_path = "pretrained_models/dr_shb.pth"
+shb_path = "pretrained_models/dilres_shb.pth"
 ucf_path = "pretrained_models/dr_ucf.pth"
+dm_shb_path = "pretrained_models/model_sh_B.pth"
+dm_sha_path = "pretrained_models/model_sh_A.pth"
 
 # url = "https://drive.google.com/uc?id=1nnIHPaV9RGqK8JHL645zmRvkNrahD9ru"
 # gdown.download(url, model_path, quiet=False)
@@ -27,14 +28,15 @@ def load_return_model(path, model):
 device = torch.device('cuda')  # device can be "cpu" or "gpu"
 
 models = {
-    'ucf': None,  # load_return_model(ucf_path, vgg16dres(map_location=device)), 
     'sha': load_return_model(sha_path, vgg16dres(map_location=device).to(device)),
-    'shb': None  # load_return_model(shb_path, vgg16dres(map_location=device)),
+    'ucf': load_return_model(ucf_path, vgg16dres1(map_location=device).to(device)),
+    'shb': load_return_model(shb_path, vgg16dres1(map_location=device).to(device)),
+    'dm_shb': load_return_model(dm_shb_path, vgg19().to(device)),
+    'dm_sha': load_return_model(dm_sha_path, vgg19().to(device)),
 }
 
 
 def predict(inp, model):
-    
     inp = Image.fromarray(inp.astype('uint8'), 'RGB')
     inp = transforms.ToTensor()(inp).unsqueeze(0)
     inp = inp.to(device)
@@ -56,10 +58,10 @@ desc = "A demo of DM-Count, a NeurIPS 2020 paper by Wang et al. Outperforms the 
        "This demo uses the QNRF trained model. Try it by uploading an image or clicking on an example " \
        "(could take up to 20s if running on CPU)."
 examples = [
-    ["/home/selman/Desktop/UCF_CC_50/16.jpg"],
+    ["examples/ucf/13.jpg"],
 ]
-inputs = [gr.inputs.Image(label="Image of Crowd", shape=(256, 256)),
-          gr.inputs.Dropdown(choices=['sha', 'shb', 'ucf'], label='Trained Dataset')]
+inputs = [gr.inputs.Image(label="Image of Crowd"),
+          gr.inputs.Dropdown(choices=['sha', 'shb', 'ucf', 'dm_shb'], label='Trained Dataset')]
 outputs = [gr.outputs.Image(label="Predicted Density Map"), gr.outputs.Label(label="Predicted Count")]
 gr.Interface(fn=predict, inputs=inputs, outputs=outputs, title=title, description=desc, examples=examples,
-             allow_flagging=False).launch(share=True)
+             allow_flagging=False, live=False, allow_screenshot=False).launch(share=True)

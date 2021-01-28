@@ -7,7 +7,7 @@ from train_helper import Trainer
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Train')
-    parser.add_argument('--load-args', default='args/conf/default_sha.json',
+    parser.add_argument('--load-args', default='args/conf/default_ucf.json',
                         help='file to read program args from.')
     args = parser.parse_args()
     with open(args.load_args) as f:

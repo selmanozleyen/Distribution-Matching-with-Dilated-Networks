@@ -22,7 +22,6 @@
             "ru_RU"
         ],
         "spellright.documentTypes": [
-            "latex",
-            "markdown"
+            "latex"
         ],
 }

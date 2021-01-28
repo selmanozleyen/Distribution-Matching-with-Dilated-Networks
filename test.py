@@ -3,7 +3,7 @@ import torch
 import os
 import numpy as np
 import json
-from myRes import vgg16dres
+from models.vgg16_drnet1 import vgg16dres1
 # from avgg import vgg16_bn
 from datetime import datetime
 from torch.utils.tensorboard import SummaryWriter
@@ -14,9 +14,9 @@ def parse_args():
     parser = argparse.ArgumentParser(description='Test ')
     parser.add_argument('--device', default='0', help='assign device')
     parser.add_argument('--model-path', type=str,
-                        default='ckpts/dilres_sha_/sha/input-256_wot-0.1_wtv-0.01_reg-10.0_nIter-100_normCood-0/0127-184408/best_model_42.49_29.65_3.pth',
+                        default='pretrained_models/dr_shb.pth',
                         help='model path to test')
-    parser.add_argument('--dataset', help='dataset name', default='sha')
+    parser.add_argument('--dataset', help='dataset name', default='shb')
     parser.add_argument('--pred-density-map', type=bool, default=False,
                         help='save predicted density maps when this is not empty.')
     args = parser.parse_args()
@@ -46,6 +46,8 @@ if __name__ == '__main__':
         from datasets.crowd import Crowd_sh as Crowd
     elif dataset_name == 'shb':
         from datasets.crowd import Crowd_sh as Crowd
+    elif dataset_name[:3] == 'ucf':
+        from datasets.crowd import Crowd_ucf as Crowd
     else:
         raise NotImplementedError
     # TODO: solve deleted checkpoint file issue
@@ -61,7 +63,7 @@ if __name__ == '__main__':
     logger = SummaryWriter(log_dir)
     create_image = args['pred_density_map']
 
-    model = vgg16dres(map_location=device)
+    model = vgg16dres1(map_location=device)
     # model = v(map_location=device)
     model.to(device)
     model.load_state_dict(torch.load(model_path, device))

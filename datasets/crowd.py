@@ -245,7 +245,7 @@ class Crowd_ucf(Base):
             self.im_list = sorted(f.read().split())
         print(self.im_list)
         # self.im_list = sorted(glob(os.path.join(self.root_path, '*.jpg')))
-        #print(os.path.join(self.root_path, '*.jpg'))
+        # print(os.path.join(self.root_path, '*.jpg'))
         print('number of img: {}'.format(len(self.im_list)))
 
     def __len__(self):
