@@ -54,7 +54,7 @@ def predict(inp, model):
 
 title = "Distribution Matching for Crowd Counting via Dilated Residual Network"
 inputs = [gr.inputs.Image(label="Image of Crowd"),
-          gr.inputs.Dropdown(choices=['sha', 'shb', 'ucf', 'dm_sha', 'dm_sha'], label='Trained Dataset')]
+          gr.inputs.Dropdown(choices=['sha', 'shb', 'ucf', 'dm_sha', 'dm_shb'], label='Trained Dataset')]
 outputs = [gr.outputs.Image(label="Predicted Density Map"), gr.outputs.Label(label="Predicted Count")]
 gr.Interface(fn=predict, inputs=inputs, outputs=outputs, title=title, examples=[],
              allow_flagging=False, live=False, allow_screenshot=False).launch(share=True)
