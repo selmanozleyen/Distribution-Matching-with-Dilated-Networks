@@ -4,15 +4,17 @@ from .bregman_pytorch import sinkhorn
 
 
 class OT_Loss(Module):
-    def __init__(self, c_size, stride, norm_cood, device, num_of_iter_in_ot=100, reg=10.0):
+    def __init__(self, c_size, stride, norm_cood, device, logger, num_of_iter_in_ot=100, reg=10.0, log_freq=10):
         super(OT_Loss, self).__init__()
         assert c_size % stride == 0
-
+        self.it = 0
+        self.log_freq = log_freq
         self.c_size = c_size
         self.device = device
         self.norm_cood = norm_cood
         self.num_of_iter_in_ot = num_of_iter_in_ot
         self.reg = reg
+        self.logger = logger
 
         # coordinate is same to image space, set to constant since crop size is same
         self.cood = torch.arange(0, c_size, step=stride,
@@ -23,7 +25,6 @@ class OT_Loss(Module):
         if self.norm_cood:
             self.cood = self.cood / c_size * 2 - 1  # map to [-1, 1]
         self.output_size = self.cood.size(1)
-        self.softmax = torch.nn.Softmax(dim=0)
 
     def forward(self, normed_density, unnormed_density, points):
         batch_size = normed_density.size(0)
@@ -52,17 +53,24 @@ class OT_Loss(Module):
                 P, log = sinkhorn(target_prob, source_prob, dis, self.reg, maxIter=self.num_of_iter_in_ot, log=True)
                 beta = log['beta']  # size is the same as source_prob: [#cood * #cood]
                 ot_obj_values += torch.sum(normed_density[idx] * beta.view([1, self.output_size, self.output_size]))
+
                 # compute the gradient of OT loss to predicted density (unnormed_density).
                 # im_grad = beta / source_count - < beta, source_density> / (source_count)^2
                 source_density = unnormed_density[idx][0].view([-1]).detach()
+                if self.it % self.log_freq == 0:
+                    self.logger.add_image("src_prob", source_density.view([1, self.output_size, self.output_size]), self.it)
                 source_count = source_density.sum()
                 im_grad_1 = (source_count) / (source_count * source_count+1e-8) * beta  # size of [#cood * #cood]
                 im_grad_2 = (source_density * beta).sum() / (source_count * source_count + 1e-8)  # size of 1
                 im_grad = im_grad_1 - im_grad_2
                 im_grad = im_grad.detach().view([1, self.output_size, self.output_size])
+                if self.it % self.log_freq == 0:
+                    self.logger.add_image("im_grad", im_grad, self.it)
+                    self.logger.add_image("beta", beta.view([1, self.output_size, self.output_size]), self.it)
                 # Define loss = <im_grad, predicted density>. The gradient of loss w.r.t prediced density is im_grad.
                 loss += torch.sum(unnormed_density[idx] * im_grad)
                 wd += torch.sum(dis * P).item()
+        self.it = self.it + 1
         return loss, wd, ot_obj_values
 
 

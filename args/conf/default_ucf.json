@@ -2,7 +2,7 @@
     "out_path":"./",
     "dataset":"ucf1",
     "lr":1e-4,
-    "weight_decay":1e-5,
+    "weight_decay":1e-4,
     "crop_size":256,
     "val_epoch":5,
     "resume":false,
@@ -17,6 +17,6 @@
     "reg":20.0,
     "num_of_iter_in_ot":100,
     "norm_cood":0,
-    "conf_name":"dilres_ucf_",
+    "conf_name":"dilres_new_dropout",
     "optimizer":"Adam"
 }

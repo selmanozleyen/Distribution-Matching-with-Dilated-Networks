@@ -62,9 +62,7 @@ class Trainer(object):
             from datasets.crowd import Crowd_qnrf as Crowd
         elif dataset_name == 'nwpu':
             from datasets.crowd import Crowd_nwpu as Crowd
-        elif dataset_name == 'sha':
-            from datasets.crowd import Crowd_sh as Crowd
-        elif dataset_name == 'shb':
+        elif dataset_name == 'sha' or dataset_name == 'shb':
             from datasets.crowd import Crowd_sh as Crowd
         elif dataset_name[:3] == 'ucf':
             from datasets.crowd import Crowd_ucf as Crowd
@@ -118,7 +116,7 @@ class Trainer(object):
         # print(self.optimizer.param_groups[0])
         self.start_epoch = 0
         self.ot_loss = OT_Loss(train_args['crop_size'], downsample_ratio,
-                               train_args['norm_cood'], self.device, train_args['num_of_iter_in_ot'],
+                               train_args['norm_cood'], self.device, self.logger, train_args['num_of_iter_in_ot'],
                                train_args['reg'])
         self.tv_loss = nn.L1Loss(reduction='none').to(self.device)
         self.mse = nn.MSELoss().to(self.device)
@@ -138,7 +136,7 @@ class Trainer(object):
                 self.best_count = checkpoint['best_count']
                 self.best_mae = checkpoint['best_mae']
                 self.best_mse = checkpoint['best_mse']
-                print(self.best_mae,self.best_mse,self.best_count)
+                print(self.best_mae, self.best_mse, self.best_count)
             elif suf == 'pth':
                 self.model.load_state_dict(torch.load(train_args['resume'], self.device))
         else:
@@ -179,14 +177,15 @@ class Trainer(object):
             N = inputs.size(0)
             wot = self.train_args['wot']
             wtv = self.train_args['wtv']
-
+            drop = random() >= 0.5
             with torch.set_grad_enabled(True):
-                if random() >= 0.5:
+                if drop:
                     self.model.dl1.eval()
+                    self.model.dl1a.eval()
                     self.model.dl2.eval()
+                    self.model.dl2a.eval()
                     self.model.dl3.eval()
-                    self.model.dl4.eval()
-                    self.model.dl5.eval()
+                    self.model.dl3a.eval()
 
                 outputs, outputs_normed = self.model(inputs)
                 # Compute OT loss.
@@ -221,6 +220,13 @@ class Trainer(object):
                 epoch_loss.update(loss.item(), N)
                 epoch_mse.update(np.mean(pred_err * pred_err), N)
                 epoch_mae.update(np.mean(abs(pred_err)), N)
+                if drop:
+                    self.model.dl1.train()
+                    self.model.dl1a.train()
+                    self.model.dl2.train()
+                    self.model.dl2a.train()
+                    self.model.dl3.train()
+                    self.model.dl3a.train()
         mae = epoch_mae.get_avg()
         mse = np.sqrt(epoch_mse.get_avg())
         self.logger.add_scalar('loss/train', epoch_loss.get_avg(), self.epoch)
