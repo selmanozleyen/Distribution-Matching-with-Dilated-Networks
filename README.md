@@ -1,6 +1,20 @@
 # DMDR-Count
 
-## Dilated variaton of [DM-Count](https://github.com/cvlab-stonybrook/DM-Count)
+## Dilated variation of [DM-Count](https://github.com/cvlab-stonybrook/DM-Count)
+Made a different repo instead of a fork because the two projects grew in different directions.
+### Additions to the original repo;
+- Arguments are now given by json files.
+- There is now TensorBoard integration!
+- UCF dataset support!
+### For the future;
+- Optional command line arguments
+- Cleaner checkpoint names
+- Documentation about design decisions and usage help.
+- Maybe deep learning tutorials?
+- Some other approaches I tried but are not ready for publishing.
+
+## The Main Idea
+![Image of architecture](media/net.png)
 
 ## Repo based on
 [Here](https://github.com/cvlab-stonybrook/DM-Count) is the original repo since the interface and the backbone network was different this will not be a fork repo.
