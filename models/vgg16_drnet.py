@@ -21,36 +21,33 @@ class VGG(nn.Module):
         self,
         device,
         features: nn.Module,
-        p=[0.01, 0.01, 0.1, 0.1, 0.2, 0.2],
+        p=[0.1, 0.5, 0.5, 0.5, 0.5, 0.5],
     ) -> None:
         super(VGG, self).__init__()
         self.features = features
 
         self.cnv1 = nn.Conv2d(512, 512, kernel_size=3, padding=2, dilation=2).to(device=device)
         self.dl1 = nn.Dropout2d(inplace=False, p=p[0])
-        self.dl1a = nn.Dropout2d(inplace=False, p=p[1])
         self.bn1 = nn.BatchNorm2d(512)
         self.layer1_relu = nn.LeakyReLU(inplace=True).to(device=device)
 
         self.cnv2 = nn.Conv2d(512, 512, kernel_size=3, padding=2, dilation=2).to(device=device)
-        self.dl2 = nn.Dropout2d(inplace=False, p=p[2])
-        self.dl2a = nn.Dropout2d(inplace=False, p=p[3])
+        self.dl2 = nn.Dropout(inplace=False, p=p[1])
         self.bn2 = nn.BatchNorm2d(512)
         self.layer2_relu = nn.LeakyReLU(inplace=True).to(device=device)
 
         self.cnv3 = nn.Conv2d(512, 512, kernel_size=3, padding=2, dilation=2).to(device=device)
-        self.dl3 = nn.Dropout2d(inplace=False, p=p[4])
-        self.dl3a = nn.Dropout2d(inplace=False, p=p[5])
+        self.dl3 = nn.Dropout(inplace=False, p=p[2])
         self.bn3 = nn.BatchNorm2d(512)
         self.layer3_relu = nn.LeakyReLU(inplace=True).to(device=device)
 
         self.cnv4 = nn.Conv2d(512, 256, kernel_size=3, padding=2, dilation=2).to(device=device)
-        # self.dl4 = nn.Dropout2d(inplace=False)
+        self.dl4 = nn.Dropout(inplace=False, p=p[3])
         self.bn4 = nn.BatchNorm2d(256)
         self.layer4_relu = nn.LeakyReLU(inplace=True).to(device=device)
 
         self.cnv5 = nn.Conv2d(256, 128, kernel_size=3, padding=2, dilation=2).to(device=device)
-        # self.dl5 = nn.Dropout2d(inplace=False)
+        self.dl5 = nn.Dropout(inplace=False, p=p[4])
         self.bn5 = nn.BatchNorm2d(128)
         self.layer5_relu = nn.LeakyReLU(inplace=True).to(device=device)
 
@@ -62,30 +59,30 @@ class VGG(nn.Module):
         x = self.cnv1(x)
         x = self.dl1(x)
         x = self.bn1(x)
-        x += self.dl1a(x_skip)
+        x += x_skip
         x = self.layer1_relu(x)
 
         x_skip = x
         x = self.cnv2(x)
         x = self.dl2(x)
         x = self.bn2(x)
-        x += self.dl2a(x_skip)
+        x += x_skip
         x = self.layer2_relu(x)
 
         x_skip = x
         x = self.cnv3(x)
         x = self.dl3(x)
         x = self.bn3(x)
-        x += self.dl3a(x_skip)
+        x += x_skip
         x = self.layer3_relu(x)
 
         x = self.cnv4(x)
-        # x = self.dl4(x)
+        x = self.dl4(x)
         x = self.bn4(x)
         x = self.layer4_relu(x)
 
         x = self.cnv5(x)
-        # x = self.dl5(x)
+        x = self.dl5(x)
         x = self.bn5(x)
         x = self.layer5_relu(x)
 

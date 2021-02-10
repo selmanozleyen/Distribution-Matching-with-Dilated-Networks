@@ -177,15 +177,14 @@ class Trainer(object):
             N = inputs.size(0)
             wot = self.train_args['wot']
             wtv = self.train_args['wtv']
-            drop = random() >= 0.5
+            drop = random() >= 0.8
             with torch.set_grad_enabled(True):
                 if drop:
                     self.model.dl1.eval()
-                    self.model.dl1a.eval()
                     self.model.dl2.eval()
-                    self.model.dl2a.eval()
                     self.model.dl3.eval()
-                    self.model.dl3a.eval()
+                    self.model.dl4.eval()
+                    self.model.dl5.eval()
 
                 outputs, outputs_normed = self.model(inputs)
                 # Compute OT loss.
@@ -210,11 +209,9 @@ class Trainer(object):
                 epoch_tv_loss.update(tv_loss.item(), N)
 
                 loss = ot_loss + count_loss + tv_loss
-
                 self.optimizer.zero_grad()
                 loss.backward()
                 self.optimizer.step()
-
                 pred_count = torch.sum(outputs.view(N, -1), dim=1).detach().cpu().numpy()
                 pred_err = pred_count - gd_count
                 epoch_loss.update(loss.item(), N)
@@ -222,11 +219,10 @@ class Trainer(object):
                 epoch_mae.update(np.mean(abs(pred_err)), N)
                 if drop:
                     self.model.dl1.train()
-                    self.model.dl1a.train()
                     self.model.dl2.train()
-                    self.model.dl2a.train()
                     self.model.dl3.train()
-                    self.model.dl3a.train()
+                    self.model.dl4.train()
+                    self.model.dl5.train()
         mae = epoch_mae.get_avg()
         mse = np.sqrt(epoch_mse.get_avg())
         self.logger.add_scalar('loss/train', epoch_loss.get_avg(), self.epoch)
@@ -263,6 +259,11 @@ class Trainer(object):
     def val_epoch(self):
         epoch_start = time.time()
         self.model.eval()  # Set model to evaluate mode
+        self.model.dl1.eval()
+        self.model.dl2.eval()
+        self.model.dl3.eval()
+        self.model.dl4.eval()
+        self.model.dl5.eval()
         epoch_res = []
         for inputs, count, name in self.dataloaders['val']:
             inputs = inputs.to(self.device)
