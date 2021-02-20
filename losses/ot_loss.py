@@ -35,7 +35,7 @@ class OT_Loss(Module):
         wd = 0  # wasserstain distance
         for idx, im_points in enumerate(points):
             if len(im_points) > 0:
-                im_points = 0.5*torch.randn_like(im_points)+im_points
+                im_points = 0.1*torch.randn_like(im_points)+im_points
                 # compute l2 square distance, it should be source target distance. [#gt, #cood * #cood]
                 if self.norm_cood:
                     im_points = im_points / self.c_size * 2 - 1  # map to [-1, 1]

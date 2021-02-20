@@ -241,10 +241,7 @@ class Crowd_ucf(Base):
         if method not in ['train', 'val']:
             raise Exception("not implemented")
         
-        with open(root_path) as f:
-            self.im_list = sorted(f.read().split())
-        print(self.im_list)
-        # self.im_list = sorted(glob(os.path.join(self.root_path, '*.jpg')))
+        self.im_list = sorted(glob(os.path.join(self.root_path, '*.jpg')))
         # print(os.path.join(self.root_path, '*.jpg'))
         print('number of img: {}'.format(len(self.im_list)))
 

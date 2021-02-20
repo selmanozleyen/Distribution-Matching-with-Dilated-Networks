@@ -21,68 +21,73 @@ class VGG(nn.Module):
         self,
         device,
         features: nn.Module,
-        p=[0.1, 0.5, 0.5, 0.5, 0.5, 0.5],
+        p=[0.1],
     ) -> None:
         super(VGG, self).__init__()
         self.features = features
 
         self.cnv1 = nn.Conv2d(512, 512, kernel_size=3, padding=2, dilation=2).to(device=device)
-        self.dl1 = nn.Dropout2d(inplace=False, p=p[0])
         self.bn1 = nn.BatchNorm2d(512)
         self.layer1_relu = nn.LeakyReLU(inplace=True).to(device=device)
 
         self.cnv2 = nn.Conv2d(512, 512, kernel_size=3, padding=2, dilation=2).to(device=device)
-        self.dl2 = nn.Dropout(inplace=False, p=p[1])
+        self.dl2 = nn.Dropout2d(inplace=False, p=0.1)
         self.bn2 = nn.BatchNorm2d(512)
         self.layer2_relu = nn.LeakyReLU(inplace=True).to(device=device)
 
         self.cnv3 = nn.Conv2d(512, 512, kernel_size=3, padding=2, dilation=2).to(device=device)
-        self.dl3 = nn.Dropout(inplace=False, p=p[2])
         self.bn3 = nn.BatchNorm2d(512)
         self.layer3_relu = nn.LeakyReLU(inplace=True).to(device=device)
 
         self.cnv4 = nn.Conv2d(512, 256, kernel_size=3, padding=2, dilation=2).to(device=device)
-        self.dl4 = nn.Dropout(inplace=False, p=p[3])
         self.bn4 = nn.BatchNorm2d(256)
         self.layer4_relu = nn.LeakyReLU(inplace=True).to(device=device)
 
         self.cnv5 = nn.Conv2d(256, 128, kernel_size=3, padding=2, dilation=2).to(device=device)
-        self.dl5 = nn.Dropout(inplace=False, p=p[4])
         self.bn5 = nn.BatchNorm2d(128)
         self.layer5_relu = nn.LeakyReLU(inplace=True).to(device=device)
 
         self.density_layer = nn.Sequential(nn.Conv2d(128, 1, 1), nn.ReLU()).to(device=device)
 
+        for m in self.modules():
+            if isinstance(m, nn.Conv2d):
+                nn.init.kaiming_normal_(m.weight, mode='fan_out', nonlinearity='leaky_relu')
+            elif isinstance(m, (nn.BatchNorm2d, nn.GroupNorm)):
+                nn.init.constant_(m.weight, 1)
+                nn.init.constant_(m.bias, 0)
+
+        # Zero-initialize the last BN in each residual branch,
+        # so that the residual branch starts with zeros, and each residual block behaves like an identity.
+        # This improves the model by 0.2~0.3% according to https://arxiv.org/abs/1706.02677
+        nn.init.constant_(self.bn3.weight, 0)
+        nn.init.constant_(self.cnv3.weight, 0)
+
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         x = self.features(x)
         x_skip = x
         x = self.cnv1(x)
-        x = self.dl1(x)
         x = self.bn1(x)
         x += x_skip
         x = self.layer1_relu(x)
 
         x_skip = x
+        x = self.dl2(x)  # right before the convolution
         x = self.cnv2(x)
-        x = self.dl2(x)
         x = self.bn2(x)
         x += x_skip
         x = self.layer2_relu(x)
 
         x_skip = x
-        x = self.cnv3(x)
-        x = self.dl3(x)
-        x = self.bn3(x)
+        x = self.cnv3(x)  # zero initialized
+        x = self.bn3(x)  # zero initialed
         x += x_skip
         x = self.layer3_relu(x)
 
         x = self.cnv4(x)
-        x = self.dl4(x)
         x = self.bn4(x)
         x = self.layer4_relu(x)
 
         x = self.cnv5(x)
-        x = self.dl5(x)
         x = self.bn5(x)
         x = self.layer5_relu(x)
 
@@ -91,13 +96,6 @@ class VGG(nn.Module):
         mu_sum = mu.view([B, -1]).sum(1).unsqueeze(1).unsqueeze(2).unsqueeze(3)
         mu_normed = mu / (mu_sum + 1e-6)
         return mu, mu_normed
-
-
-def conv2d_bn(in_channels, out_channels, kernel_size=3, padding=2, dilation=2):
-    return nn.Sequential(
-        nn.Conv2d(in_channels, out_channels, kernel_size=kernel_size, padding=padding, dilation=dilation),
-        nn.Dropout2d(inplace=False, p=0.01),
-        nn.BatchNorm2d(out_channels))
 
 
 def make_layers(cfg, batch_norm=True):

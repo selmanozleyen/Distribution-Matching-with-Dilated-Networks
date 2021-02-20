@@ -8,13 +8,12 @@ from torch.utils.data.dataloader import default_collate
 import numpy as np
 from datetime import datetime
 from utils.data import ValSubset
-from torch.utils.data import random_split
-from random import random
+from torch.utils.data import random_split, ConcatDataset
 from models.vgg16_drnet import vgg16dres
 from losses.ot_loss import OT_Loss
 from utils.pytorch_utils import Save_Handle, AverageMeter
 from torch.utils.tensorboard import SummaryWriter
-
+import json
 
 def train_collate(batch):
     transposed_batch = list(zip(*batch))
@@ -33,20 +32,19 @@ class Trainer(object):
     def setup(self):
         train_args = self.train_args
         datargs = self.datargs
-        sub_dir = 'input-{}_wot-{}_wtv-{}_reg-{}_nIter-{}_normCood-{}'.format(
-            train_args['crop_size'], train_args['wot'],
-            train_args['wtv'], train_args['reg'], train_args['num_of_iter_in_ot'],
-            train_args['norm_cood'])
 
         time_str = datetime.strftime(datetime.now(), '%m%d-%H%M%S')
-        self.save_dir = os.path.join(train_args['out_path'], 'ckpts',
-                                     train_args['conf_name'], train_args['dataset'], sub_dir, time_str)
+        self.save_dir = os.path.join(train_args['out_path'], 'ckpts', time_str)
+        arg_save_dir = os.path.join(train_args['out_path'], 'ckpts', time_str, 'args.json')
         if not os.path.exists(self.save_dir):
             os.makedirs(self.save_dir)
-        log_dir = os.path.join(train_args['out_path'], 'runs', train_args['dataset'], train_args['conf_name'],
-                               time_str)
+        log_dir = os.path.join(train_args['out_path'], 'runs', time_str)
         if not os.path.exists(log_dir):
             os.makedirs(log_dir)
+
+        # Write args
+        with open(arg_save_dir, 'w') as w:
+            json.dump(train_args, w)
 
         # TODO: Verify args
         self.logger = SummaryWriter(log_dir)
@@ -68,7 +66,7 @@ class Trainer(object):
             from datasets.crowd import Crowd_ucf as Crowd
         else:
             raise NotImplementedError
-        if dataset_name == 'sha' or dataset_name == 'shb':
+        if dataset_name == 'sha' or dataset_name == 'shb' or dataset_name == 'ucf':
             downsample_ratio = train_args['downsample_ratio']
             train_val = Crowd(os.path.join(datargs['data_path'],
                                            datargs["train_path"]),
@@ -77,9 +75,13 @@ class Trainer(object):
             if dataset_name == 'sha':
                 train_set, val = random_split(train_val, [280, 20], generator=torch.Generator().manual_seed(42))
                 val_set = ValSubset(val)
-            else:
+            elif dataset_name == 'shb':
                 train_set, val = random_split(train_val, [380, 20], generator=torch.Generator().manual_seed(42))
                 val_set = ValSubset(val)
+            else:
+                p1, p2, p3, p4, p5 = random_split(train_val, [10, 10, 10, 10, 10], generator=torch.Generator().manual_seed(42))
+                train_set = ConcatDataset([p2, p3, p4, p5])
+                val_set = ValSubset(p1)
             self.datasets = {
                 'train': train_set,
                 'val': val_set
@@ -177,15 +179,7 @@ class Trainer(object):
             N = inputs.size(0)
             wot = self.train_args['wot']
             wtv = self.train_args['wtv']
-            drop = random() >= 0.8
             with torch.set_grad_enabled(True):
-                if drop:
-                    self.model.dl1.eval()
-                    self.model.dl2.eval()
-                    self.model.dl3.eval()
-                    self.model.dl4.eval()
-                    self.model.dl5.eval()
-
                 outputs, outputs_normed = self.model(inputs)
                 # Compute OT loss.
                 ot_loss, wd, ot_obj_value = self.ot_loss(outputs_normed, outputs, points)
@@ -217,12 +211,7 @@ class Trainer(object):
                 epoch_loss.update(loss.item(), N)
                 epoch_mse.update(np.mean(pred_err * pred_err), N)
                 epoch_mae.update(np.mean(abs(pred_err)), N)
-                if drop:
-                    self.model.dl1.train()
-                    self.model.dl2.train()
-                    self.model.dl3.train()
-                    self.model.dl4.train()
-                    self.model.dl5.train()
+
         mae = epoch_mae.get_avg()
         mse = np.sqrt(epoch_mse.get_avg())
         self.logger.add_scalar('loss/train', epoch_loss.get_avg(), self.epoch)
@@ -259,11 +248,7 @@ class Trainer(object):
     def val_epoch(self):
         epoch_start = time.time()
         self.model.eval()  # Set model to evaluate mode
-        self.model.dl1.eval()
-        self.model.dl2.eval()
-        self.model.dl3.eval()
-        self.model.dl4.eval()
-        self.model.dl5.eval()
+
         epoch_res = []
         for inputs, count, name in self.dataloaders['val']:
             inputs = inputs.to(self.device)
