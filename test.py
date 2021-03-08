@@ -3,7 +3,7 @@ import torch
 import os
 import numpy as np
 import json
-from models.vgg16_drnet1 import vgg16dres1
+from models.ddm import ddm
 # from avgg import vgg16_bn
 from datetime import datetime
 from torch.utils.tensorboard import SummaryWriter
@@ -14,7 +14,7 @@ def parse_args():
     parser = argparse.ArgumentParser(description='Test ')
     parser.add_argument('--device', default='0', help='assign device')
     parser.add_argument('--model-path', type=str,
-                        default='pretrained_models/dr_shb.pth',
+                        default='pretrained_models/ddm_shb.pth',
                         help='model path to test')
     parser.add_argument('--dataset', help='dataset name', default='shb')
     parser.add_argument('--pred-density-map', type=bool, default=False,
@@ -32,6 +32,7 @@ if __name__ == '__main__':
     args = parse_args()
     os.environ['CUDA_VISIBLE_DEVICES'] = args['device'].strip()  # set vis gpu
     device = torch.device('cuda')
+    print(os.environ['CUDA_VISIBLE_DEVICES'])
 
     model_path = args['model_path']
     crop_size = 32  # dummy value
@@ -63,7 +64,7 @@ if __name__ == '__main__':
     logger = SummaryWriter(log_dir)
     create_image = args['pred_density_map']
 
-    model = vgg16dres1(map_location=device)
+    model = ddm(map_location=device)
     # model = v(map_location=device)
     model.to(device)
     model.load_state_dict(torch.load(model_path, device))
