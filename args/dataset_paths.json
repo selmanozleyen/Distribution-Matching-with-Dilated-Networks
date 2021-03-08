@@ -20,9 +20,9 @@
         "train_path":"train_data"      
     },
     "ucf":{
-        "data_path":"~/datasets/UCF_CC_50",
-        "val_path":"paths/ucf_test_1.txt",
-        "train_path":"paths/ucf_train_1.txt"      
+        "data_path":"./",
+        "val_path":"ucf_test_1.txt",
+        "train_path":"./ucf_train_1.txt"      
     },
     "ucf2":{
         "data_path":"./UCF_CC_50",
