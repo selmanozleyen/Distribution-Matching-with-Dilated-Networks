@@ -18,5 +18,6 @@
     "num_of_iter_in_ot":100,
     "norm_cood":0,
     "conf_name":"ddm_v2",
+    "log_freq":10000000,
     "optimizer":"Adam"
 }
