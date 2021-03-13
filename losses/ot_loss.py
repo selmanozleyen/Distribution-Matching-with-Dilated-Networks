@@ -37,10 +37,10 @@ class OT_Loss(Module):
             if len(im_points) == 0:
                 im_points = torch.tensor(
                     [
-                        [0,2*self.c_size]
-                        [0,-2*self.c_size]
-                        [2*self.c_size,0]
-                        [-2*self.c_size,0]
+                        [0,2*self.c_size],
+                        [0,-2*self.c_size],
+                        [2*self.c_size,0],
+                        [-2*self.c_size,0],
                     ], device=self.device
                 )
             
