@@ -4,10 +4,10 @@ from .bregman_pytorch import sinkhorn
 
 
 class OT_Loss(Module):
-    def __init__(self, c_size, stride, norm_cood, device, logger, num_of_iter_in_ot=100, reg=10.0, log_freq=10):
+    def __init__(self, c_size, stride, norm_cood, device, logger, num_of_iter_in_ot=100, reg=10.0, log_freq=1000000000):
         super(OT_Loss, self).__init__()
         assert c_size % stride == 0
-        self.it = 0
+        self.it = 1
         self.log_freq = log_freq
         self.c_size = c_size
         self.device = device

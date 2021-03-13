@@ -113,7 +113,7 @@ class Trainer(object):
         self.start_epoch = 0
         self.ot_loss = OT_Loss(train_args['crop_size'], downsample_ratio,
                                train_args['norm_cood'], self.device, self.logger, train_args['num_of_iter_in_ot'],
-                               train_args['reg'])
+                               train_args['reg'], train_args['log_freq'])
         self.tv_loss = nn.L1Loss(reduction='none').to(self.device)
         self.mse = nn.MSELoss().to(self.device)
         self.mae = nn.L1Loss().to(self.device)
