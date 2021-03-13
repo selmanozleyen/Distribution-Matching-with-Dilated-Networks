@@ -10,13 +10,13 @@
     "val_start":5,
     "batch_size":15,
     "device":"0",
-    "num_workers":3,
+    "num_workers":12,
     "downsample_ratio":8,
     "wot":0.1,
     "wtv":0.01,
-    "reg":20.0,
+    "reg":10.0,
     "num_of_iter_in_ot":100,
     "norm_cood":0,
-    "conf_name":"dil_res_new_init",
+    "conf_name":"ddm_v2",
     "optimizer":"Adam"
 }

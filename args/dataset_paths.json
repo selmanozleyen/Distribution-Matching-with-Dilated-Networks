@@ -20,9 +20,9 @@
         "train_path":"train_data"      
     },
     "ucf":{
-        "data_path":"/content/drive/MyDrive/stuff",
-        "val_path":"ucf",
-        "train_path":"ucf"      
+        "data_path":"/home/selman/Documents/datasets",
+        "val_path":"UCF_CC_50",
+        "train_path":"UCF_CC_50"      
     },
     "ucf2":{
         "data_path":"./UCF_CC_50",

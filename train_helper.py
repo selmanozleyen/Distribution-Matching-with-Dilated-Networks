@@ -106,16 +106,10 @@ class Trainer(object):
                                           num_workers=train_args['num_workers'] * self.device_count,
                                           pin_memory=(True if x == 'train' else False))
                             for x in ['train', 'val']}
-        self.model = vgg16dres(map_location=self.device)
+        self.model = ddm_v2(map_location=self.device)
         self.model.to(self.device)
-        # for p in self.model.features.parameters():
-        #     p.requires_grad = True
         self.optimizer = optim.Adam(self.model.parameters(), lr=train_args['lr'],
                                     weight_decay=train_args['weight_decay'], amsgrad=False)
-        # for _, p in zip(range(10000), next(self.model.children()).children()):
-        #     p.requires_grad = False
-        #     print("freeze: ", p)
-        # print(self.optimizer.param_groups[0])
         self.start_epoch = 0
         self.ot_loss = OT_Loss(train_args['crop_size'], downsample_ratio,
                                train_args['norm_cood'], self.device, self.logger, train_args['num_of_iter_in_ot'],
