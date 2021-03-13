@@ -1,6 +1,12 @@
+
 import torch
 import torch.nn as nn
 import torch.utils.model_zoo as model_zoo
+
+__all__ = [
+    'VGG', 'vgg11', 'vgg11_bn', 'vgg13', 'vgg13_bn', 'vgg16', 'vgg16_bn',
+    'vgg19_bn', 'vgg19',
+]
 
 
 model_urls = {
@@ -21,69 +27,51 @@ class VGG(nn.Module):
         self,
         device,
         features: nn.Module,
-        p=[0.1, 0.5, 0.5, 0.5, 0.5, 0.5],
     ) -> None:
         super(VGG, self).__init__()
         self.features = features
 
-        self.cnv1 = nn.Conv2d(512, 512, kernel_size=3, padding=2, dilation=2).to(device=device)
-        self.dl1 = nn.Dropout2d(inplace=False, p=p[0])
-        self.bn1 = nn.BatchNorm2d(512)
-        self.layer1_relu = nn.LeakyReLU(inplace=True).to(device=device)
+        self.layer1 = conv2d_bn(512, 512).to(device=device)
+        self.layer1_relu = nn.LeakyReLU(True).to(device=device)
 
-        self.cnv2 = nn.Conv2d(512, 512, kernel_size=3, padding=2, dilation=2).to(device=device)
-        self.dl2 = nn.Dropout(inplace=False, p=p[1])
-        self.bn2 = nn.BatchNorm2d(512)
-        self.layer2_relu = nn.LeakyReLU(inplace=True).to(device=device)
+        self.layer2 = conv2d_bn(512, 512).to(device=device)
+        self.layer2_relu = nn.LeakyReLU(True).to(device=device)
 
-        self.cnv3 = nn.Conv2d(512, 512, kernel_size=3, padding=2, dilation=2).to(device=device)
-        self.dl3 = nn.Dropout(inplace=False, p=p[2])
-        self.bn3 = nn.BatchNorm2d(512)
-        self.layer3_relu = nn.LeakyReLU(inplace=True).to(device=device)
+        self.layer3 = conv2d_bn(512, 512).to(device=device)
+        self.layer3_relu = nn.LeakyReLU(True).to(device=device)
 
-        self.cnv4 = nn.Conv2d(512, 256, kernel_size=3, padding=2, dilation=2).to(device=device)
-        self.dl4 = nn.Dropout(inplace=False, p=p[3])
-        self.bn4 = nn.BatchNorm2d(256)
-        self.layer4_relu = nn.LeakyReLU(inplace=True).to(device=device)
+        self.layer4 = conv2d_bn(512, 256).to(device=device)
+        self.layer4_relu = nn.LeakyReLU(True).to(device=device)
 
-        self.cnv5 = nn.Conv2d(256, 128, kernel_size=3, padding=2, dilation=2).to(device=device)
-        self.dl5 = nn.Dropout(inplace=False, p=p[4])
-        self.bn5 = nn.BatchNorm2d(128)
-        self.layer5_relu = nn.LeakyReLU(inplace=True).to(device=device)
+        self.layer5 = conv2d_bn(256, 128).to(device=device)
+        self.layer5_relu = nn.LeakyReLU(True).to(device=device)
+        
+        self.layer6 = conv2d_bn(128, 64).to(device=device)
+        self.layer6_relu = nn.LeakyReLU(True).to(device=device)
 
-        self.density_layer = nn.Sequential(nn.Conv2d(128, 1, 1), nn.ReLU()).to(device=device)
+        self.density_layer = nn.Sequential(nn.Conv2d(64, 1, 1), nn.ReLU()).to(device=device)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         x = self.features(x)
         x_skip = x
-        x = self.cnv1(x)
-        x = self.dl1(x)
-        x = self.bn1(x)
+        x = self.layer1(x)
         x += x_skip
         x = self.layer1_relu(x)
 
         x_skip = x
-        x = self.cnv2(x)
-        x = self.dl2(x)
-        x = self.bn2(x)
+        x = self.layer2(x)
         x += x_skip
         x = self.layer2_relu(x)
 
         x_skip = x
-        x = self.cnv3(x)
-        x = self.dl3(x)
-        x = self.bn3(x)
+        x = self.layer3(x)
         x += x_skip
         x = self.layer3_relu(x)
 
-        x = self.cnv4(x)
-        x = self.dl4(x)
-        x = self.bn4(x)
+        x = self.layer4(x)
         x = self.layer4_relu(x)
 
-        x = self.cnv5(x)
-        x = self.dl5(x)
-        x = self.bn5(x)
+        x = self.layer5(x)
         x = self.layer5_relu(x)
 
         mu = self.density_layer(x)
@@ -95,8 +83,8 @@ class VGG(nn.Module):
 
 def conv2d_bn(in_channels, out_channels, kernel_size=3, padding=2, dilation=2):
     return nn.Sequential(
+        nn.Dropout(inplace=True),
         nn.Conv2d(in_channels, out_channels, kernel_size=kernel_size, padding=padding, dilation=dilation),
-        nn.Dropout2d(inplace=False, p=0.01),
         nn.BatchNorm2d(out_channels))
 
 
@@ -121,7 +109,7 @@ cfg = {
 }
 
 
-def vgg16dres(map_location, pretrained: bool = True, progress: bool = True) -> VGG:
+def vgg16dres1(map_location, pretrained: bool = True, progress: bool = True) -> VGG:
     model = VGG(map_location, make_layers(cfg['D']))
     model.load_state_dict(model_zoo.load_url(model_urls['vgg16_bn'], map_location=map_location),
                           strict=False)

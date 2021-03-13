@@ -61,8 +61,10 @@ class VGG(nn.Module):
         # Zero-initialize the last BN in each residual branch,
         # so that the residual branch starts with zeros, and each residual block behaves like an identity.
         # This improves the model by 0.2~0.3% according to https://arxiv.org/abs/1706.02677
+        nn.init.constant_(self.bn1.weight, 0)
+        nn.init.constant_(self.bn2.weight, 0)
         nn.init.constant_(self.bn3.weight, 0)
-        nn.init.constant_(self.cnv3.weight, 0)
+        
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         x = self.features(x)
