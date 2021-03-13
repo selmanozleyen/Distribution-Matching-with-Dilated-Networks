@@ -4,7 +4,8 @@ from .bregman_pytorch import sinkhorn
 
 
 class OT_Loss(Module):
-    def __init__(self, c_size, stride, norm_cood, device, logger, num_of_iter_in_ot=100, reg=10.0, log_freq=1000000000):
+    def __init__(self, c_size, stride, norm_cood, device, logger,
+                 num_of_iter_in_ot=100, reg=10.0, log_freq=10000, add_noise=False):
         super(OT_Loss, self).__init__()
         assert c_size % stride == 0
         self.it = 1
@@ -15,6 +16,7 @@ class OT_Loss(Module):
         self.num_of_iter_in_ot = num_of_iter_in_ot
         self.reg = reg
         self.logger = logger
+        self.add_noise = add_noise
 
         # coordinate is same to image space, set to constant since crop size is same
         self.cood = torch.arange(0, c_size, step=stride,
@@ -41,10 +43,10 @@ class OT_Loss(Module):
                         [0,-2*self.c_size],
                         [2*self.c_size,0],
                         [-2*self.c_size,0],
-                    ], device=self.device
+                    ], device=self.device, dtype=torch.float32
                 )
-            
-            im_points = 0.1*torch.randn_like(im_points)+im_points
+            if self.add_noise:
+                im_points = 0.1*torch.randn_like(im_points)+im_points
             # compute l2 square distance, it should be source target distance. [#gt, #cood * #cood]
             if self.norm_cood:
                 im_points = im_points / self.c_size * 2 - 1  # map to [-1, 1]
