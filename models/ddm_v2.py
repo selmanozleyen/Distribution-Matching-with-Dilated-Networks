@@ -51,6 +51,22 @@ class VGG(nn.Module):
 
         self.density_layer = nn.Sequential(nn.Conv2d(64, 1, 1), nn.ReLU()).to(device=device)
 
+        for m in self.modules():
+            if isinstance(m, nn.Conv2d):
+                nn.init.kaiming_normal_(m.weight, mode='fan_out', nonlinearity='leaky_relu')
+            elif isinstance(m, (nn.BatchNorm2d, nn.GroupNorm)):
+                nn.init.constant_(m.weight, 1)
+                nn.init.constant_(m.bias, 0)
+        for m in self.density_layer.modules():
+            if isinstance(m, nn.Conv2d):
+                nn.init.kaiming_normal_(m.weight, mode='fan_out', nonlinearity='relu')
+        # Zero-initialize the last BN in each residual branch,
+        # so that the residual branch starts with zeros, and each residual block behaves like an identity.
+        # This improves the model by 0.2~0.3% according to https://arxiv.org/abs/1706.02677
+        nn.init.constant_(self.layer1[-1].weight, 0)
+        nn.init.constant_(self.layer2[-1].weight, 0)
+        nn.init.constant_(self.layer3[-1].weight, 0)
+
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         x = self.features(x)
         x_skip = x
@@ -73,6 +89,9 @@ class VGG(nn.Module):
 
         x = self.layer5(x)
         x = self.layer5_relu(x)
+        
+        x = self.layer6(x)
+        x = self.layer6_relu(x)
 
         mu = self.density_layer(x)
         B, C, H, W = mu.size()
@@ -109,7 +128,7 @@ cfg = {
 }
 
 
-def vgg16dres1(map_location, pretrained: bool = True, progress: bool = True) -> VGG:
+def ddm_v2(map_location, pretrained: bool = True, progress: bool = True) -> VGG:
     model = VGG(map_location, make_layers(cfg['D']))
     model.load_state_dict(model_zoo.load_url(model_urls['vgg16_bn'], map_location=map_location),
                           strict=False)

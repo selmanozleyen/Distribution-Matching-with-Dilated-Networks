@@ -9,7 +9,7 @@ import numpy as np
 from datetime import datetime
 from utils.data import ValSubset
 from torch.utils.data import random_split, ConcatDataset
-from models.vgg16_drnet import vgg16dres
+from models.ddm_v2 import ddm_v2
 from losses.ot_loss import OT_Loss
 from utils.pytorch_utils import Save_Handle, AverageMeter
 from torch.utils.tensorboard import SummaryWriter
