@@ -5,10 +5,10 @@
     "weight_decay":1e-4,
     "crop_size":256,
     "val_epoch":5,
-    "resume":"ckpts/dilres_sha_drop_val/sha/input-256_wot-0.1_wtv-0.01_reg-10.0_nIter-100_normCood-0/0129-052907/best_model_96.90_62.29_9.pth",
+    "resume":false,
     "max_epoch":1000,
     "val_start":5,
-    "batch_size":15,
+    "batch_size":25,
     "device":"0",
     "num_workers":12,
     "downsample_ratio":8,
@@ -17,6 +17,6 @@
     "reg":10.0,
     "num_of_iter_in_ot":100,
     "norm_cood":0,
-    "conf_name":"dilres_sha_drop_val",
+    "conf_name":"ddm_v2",
     "optimizer":"Adam"
 }

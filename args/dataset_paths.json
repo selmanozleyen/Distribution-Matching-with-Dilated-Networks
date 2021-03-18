@@ -10,9 +10,9 @@
         "train_path":"train"
     },
     "sha":{
-        "data_path":"/home/selman/datasets/sha",
-        "val_path":"val",
-        "train_path":"train"
+        "data_path":"home/selman/Documents/datasets/ShanghaiTech/part_A",
+        "val_path":"test_data",
+        "train_path":"train_data"
     },
     "shb":{
         "data_path":"/content/drive/MyDrive/stuff/dmc/DM-Count/ShanghaiTech/part_B",
