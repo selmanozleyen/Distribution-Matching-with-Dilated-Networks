@@ -8,6 +8,7 @@ from torchvision import transforms
 import random
 import numpy as np
 import scipy.io as sio
+from torchvision.transforms.transforms import RandomResizedCrop
 
 
 def random_crop(im_h, im_w, crop_h, crop_w):
@@ -81,6 +82,7 @@ class Base(data.Dataset):
                 img = F.hflip(img)
                 gt_discrete = np.fliplr(gt_discrete)
                 keypoints[:, 0] = w - keypoints[:, 0]
+
         else:
             if random.random() > 0.5:
                 img = F.hflip(img)

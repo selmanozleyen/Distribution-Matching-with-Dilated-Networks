@@ -14,11 +14,11 @@
     "downsample_ratio":8,
     "wot":0.1,
     "wtv":0.01,
-    "reg":20.0,
+    "reg":14.0,
     "num_of_iter_in_ot":100,
     "norm_cood":0,
     "conf_name":"ddm_v2",
     "log_freq":10000000,
     "optimizer":"Adam",
-    "noise_radius":1
+    "noise_radius":0.4
 }
