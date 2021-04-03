@@ -13,3 +13,6 @@
 demo.md
 demo**.pdf
 **/UCF_CC_50
+ckpts.zip
+.gitignore
+runs.zip
