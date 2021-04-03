@@ -80,8 +80,8 @@ class Trainer(object):
                 val_set = ValSubset(val)
             else:
                 p1, p2, p3, p4, p5 = random_split(train_val, [10, 10, 10, 10, 10], generator=torch.Generator().manual_seed(42))
-                train_set = ConcatDataset([p2, p3, p4, p5])
-                val_set = ValSubset(p1)
+                train_set = ConcatDataset([p1, p3, p4, p5])
+                val_set = ValSubset(p2)
             self.datasets = {
                 'train': train_set,
                 'val': val_set

@@ -20,7 +20,7 @@
         "train_path":"train_data"      
     },
     "ucf":{
-        "data_path":"/home/selman/Documents/datasets",
+        "data_path":"/home/selman/Datasets/",
         "val_path":"UCF_CC_50",
         "train_path":"UCF_CC_50"      
     },
