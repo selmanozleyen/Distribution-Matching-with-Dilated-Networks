@@ -66,7 +66,7 @@ class Trainer(object):
             from datasets.crowd import Crowd_ucf as Crowd
         else:
             raise NotImplementedError
-        if dataset_name == 'sha' or dataset_name == 'shb' or dataset_name == 'ucf':
+        if dataset_name == 'sha' or dataset_name == 'shb' or dataset_name[:3] == 'ucf':
             downsample_ratio = train_args['downsample_ratio']
             train_val = Crowd(os.path.join(datargs['data_path'],
                                            datargs["train_path"]),
@@ -79,9 +79,11 @@ class Trainer(object):
                 train_set, val = random_split(train_val, [380, 20], generator=torch.Generator().manual_seed(42))
                 val_set = ValSubset(val)
             else:
-                p1, p2, p3, p4, p5 = random_split(train_val, [10, 10, 10, 10, 10], generator=torch.Generator().manual_seed(42))
-                train_set = ConcatDataset([p5, p2, p3, p4])
-                val_set = ValSubset(p1)
+                foldno = int(dataset_name[3])
+                fold = random_split(train_val, [10, 10, 10, 10, 10], generator=torch.Generator().manual_seed(42))
+                pval = fold.pop(foldno)
+                train_set = ConcatDataset(fold)
+                val_set = ValSubset(pval)
             self.datasets = {
                 'train': train_set,
                 'val': val_set

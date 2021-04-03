@@ -24,6 +24,11 @@
         "val_path":"UCF_CC_50",
         "train_path":"UCF_CC_50"      
     },
+    "ucf1":{
+        "data_path":"/home/selman/Datasets/",
+        "val_path":"UCF_CC_50",
+        "train_path":"UCF_CC_50"      
+    },
     "ucf2":{
         "data_path":"./UCF_CC_50",
         "val_path":"paths/ucf_test_2.txt",

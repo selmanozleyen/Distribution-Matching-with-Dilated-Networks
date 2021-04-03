@@ -1,6 +1,6 @@
 {
     "out_path": "./",
-    "dataset": "ucf",
+    "dataset": "ucf1",
     "lr": 0.0001,
     "weight_decay": 0.0001,
     "crop_size": 256,
@@ -14,11 +14,11 @@
     "downsample_ratio": 8,
     "wot": 0.1,
     "wtv": 0.01,
-    "reg": 10.0,
+    "reg": 14.0,
     "num_of_iter_in_ot": 100,
     "norm_cood": 0,
-    "conf_name": "ddm_v2_fold4",
+    "conf_name": "ddm_v2_fold4_dout",
     "log_freq": 10000000,
     "optimizer": "Adam",
-    "noise_radius": 0.4
+    "noise_radius": 0.25
 }

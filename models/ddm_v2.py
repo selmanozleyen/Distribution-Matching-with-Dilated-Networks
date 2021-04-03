@@ -31,22 +31,22 @@ class VGG(nn.Module):
         super(VGG, self).__init__()
         self.features = features
 
-        self.layer1 = conv2d_bn(512, 512).to(device=device)
+        self.layer1 = conv2d_bn(512, 512,p=0.5).to(device=device)
         self.layer1_relu = nn.LeakyReLU(True).to(device=device)
 
-        self.layer2 = conv2d_bn(512, 512).to(device=device)
+        self.layer2 = conv2d_bn(512, 512,p=0.5).to(device=device)
         self.layer2_relu = nn.LeakyReLU(True).to(device=device)
 
-        self.layer3 = conv2d_bn(512, 512).to(device=device)
+        self.layer3 = conv2d_bn(512, 512,p=0.4).to(device=device)
         self.layer3_relu = nn.LeakyReLU(True).to(device=device)
 
-        self.layer4 = conv2d_bn(512, 256).to(device=device)
+        self.layer4 = conv2d_bn(512, 256,p=0.3).to(device=device)
         self.layer4_relu = nn.LeakyReLU(True).to(device=device)
 
-        self.layer5 = conv2d_bn(256, 128).to(device=device)
+        self.layer5 = conv2d_bn(256, 128,p=0.2).to(device=device)
         self.layer5_relu = nn.LeakyReLU(True).to(device=device)
         
-        self.layer6 = conv2d_bn(128, 64).to(device=device)
+        self.layer6 = conv2d_bn(128, 64,p=0.1).to(device=device)
         self.layer6_relu = nn.LeakyReLU(True).to(device=device)
 
         self.density_layer = nn.Sequential(nn.Conv2d(64, 1, 1), nn.ReLU()).to(device=device)
@@ -96,13 +96,13 @@ class VGG(nn.Module):
         mu = self.density_layer(x)
         B, C, H, W = mu.size()
         mu_sum = mu.view([B, -1]).sum(1).unsqueeze(1).unsqueeze(2).unsqueeze(3)
-        mu_normed = mu / (mu_sum + 1e-6)
+        mu_normed = mu / (mu_sum + 1e-7)
         return mu, mu_normed
 
 
-def conv2d_bn(in_channels, out_channels, kernel_size=3, padding=2, dilation=2):
+def conv2d_bn(in_channels, out_channels, kernel_size=3, padding=2, dilation=2,p=0.5):
     return nn.Sequential(
-        nn.Dropout(inplace=True),
+        nn.Dropout(inplace=True,p=p),
         nn.Conv2d(in_channels, out_channels, kernel_size=kernel_size, padding=padding, dilation=dilation),
         nn.BatchNorm2d(out_channels))
 

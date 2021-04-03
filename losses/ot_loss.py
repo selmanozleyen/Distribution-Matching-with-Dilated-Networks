@@ -36,12 +36,14 @@ class OT_Loss(Module):
         ot_obj_values = torch.zeros([1]).to(self.device)
         wd = 0  # wasserstain distance
         for idx, im_points in enumerate(points):
+            if len(im_points) == 0 and torch.sum(unnormed_density[idx]) < 0.6:
+                continue
             if len(im_points) == 0:
                 im_points = torch.tensor(
                     [
-                        [0,2*self.c_size],
+                        [0,3*self.c_size],
                         [0,-2*self.c_size],
-                        [2*self.c_size,0],
+                        [3*self.c_size,0],
                         [-2*self.c_size,0],
                     ], device=self.device, dtype=torch.float32
                 )
