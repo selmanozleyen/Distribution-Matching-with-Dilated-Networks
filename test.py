@@ -3,7 +3,7 @@ import torch
 import os
 import numpy as np
 import json
-from models.vgg16_drnet1 import vgg16dres1
+from models.ddm_v2 import ddm_v2
 # from avgg import vgg16_bn
 from datetime import datetime
 from torch.utils.tensorboard import SummaryWriter
@@ -63,7 +63,7 @@ if __name__ == '__main__':
     logger = SummaryWriter(log_dir)
     create_image = args['pred_density_map']
 
-    model = vgg16dres1(map_location=device)
+    model = ddm_v2(map_location=device)
     # model = v(map_location=device)
     model.to(device)
     model.load_state_dict(torch.load(model_path, device))

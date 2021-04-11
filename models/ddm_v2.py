@@ -37,16 +37,16 @@ class VGG(nn.Module):
         self.layer2 = conv2d_bn(512, 512,p=0.5).to(device=device)
         self.layer2_relu = nn.LeakyReLU(True).to(device=device)
 
-        self.layer3 = conv2d_bn(512, 512,p=0.4).to(device=device)
+        self.layer3 = conv2d_bn(512, 512,p=0.5).to(device=device)
         self.layer3_relu = nn.LeakyReLU(True).to(device=device)
 
-        self.layer4 = conv2d_bn(512, 256,p=0.3).to(device=device)
+        self.layer4 = conv2d_bn(512, 256,p=0.5).to(device=device)
         self.layer4_relu = nn.LeakyReLU(True).to(device=device)
 
-        self.layer5 = conv2d_bn(256, 128,p=0.2).to(device=device)
+        self.layer5 = conv2d_bn(256, 128,p=0.5).to(device=device)
         self.layer5_relu = nn.LeakyReLU(True).to(device=device)
         
-        self.layer6 = conv2d_bn(128, 64,p=0.1).to(device=device)
+        self.layer6 = conv2d_bn(128, 64,p=0.5).to(device=device)
         self.layer6_relu = nn.LeakyReLU(True).to(device=device)
 
         self.density_layer = nn.Sequential(nn.Conv2d(64, 1, 1), nn.ReLU()).to(device=device)

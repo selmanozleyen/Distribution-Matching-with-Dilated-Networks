@@ -10,7 +10,7 @@
         "train_path":"train"
     },
     "sha":{
-        "data_path":"home/selman/Documents/datasets/ShanghaiTech/part_A",
+        "data_path":"ShanghaiTech/part_A",
         "val_path":"test_data",
         "train_path":"train_data"
     },

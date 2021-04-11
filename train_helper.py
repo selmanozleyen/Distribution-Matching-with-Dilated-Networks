@@ -73,8 +73,9 @@ class Trainer(object):
                               crop_size=train_args['crop_size'],
                               downsample_ratio=downsample_ratio, method='train')
             if dataset_name == 'sha':
-                train_set, val = random_split(train_val, [280, 20], generator=torch.Generator().manual_seed(42))
+                train_set, val = random_split(train_val, [270, 30], generator=torch.Generator().manual_seed(40))
                 val_set = ValSubset(val)
+                val_set.print_subset()
             elif dataset_name == 'shb':
                 train_set, val = random_split(train_val, [380, 20], generator=torch.Generator().manual_seed(42))
                 val_set = ValSubset(val)

@@ -190,6 +190,7 @@ class Crowd_sh(Base):
             # # print("p:",padx,pady,img.size())
             return img, len(keypoints), name
 
+
     def train_transform(self, img, keypoints):
         wd, ht = img.size
         st_size = 1.0 * min(wd, ht)

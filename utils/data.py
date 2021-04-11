@@ -1,6 +1,6 @@
 from torch.utils.data import Subset
 import torch
-
+import numpy as np
 
 class ValSubset(Subset):
     def __init__(self, inner_: Subset) -> None:
@@ -16,6 +16,8 @@ class ValSubset(Subset):
     def __len__(self):
         return len(self.inner_.indices)
 
+    def print_subset(self):
+        pass
 
 def train_collate(batch):
     transposed_batch = list(zip(*batch))
