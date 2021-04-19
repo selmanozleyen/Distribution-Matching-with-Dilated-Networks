@@ -73,7 +73,7 @@ class Trainer(object):
                               crop_size=train_args['crop_size'],
                               downsample_ratio=downsample_ratio, method='train')
             if dataset_name == 'sha':
-                train_set, val = random_split(train_val, [270, 30], generator=torch.Generator().manual_seed(40))
+                train_set, val = random_split(train_val, [280, 20], generator=torch.Generator().manual_seed(39))
                 val_set = ValSubset(val)
                 val_set.print_subset()
             elif dataset_name == 'shb':
@@ -116,7 +116,7 @@ class Trainer(object):
         self.start_epoch = 0
         self.ot_loss = OT_Loss(train_args['crop_size'], downsample_ratio,
                                train_args['norm_cood'], self.device, self.logger, train_args['num_of_iter_in_ot'],
-                               train_args['reg'], train_args['log_freq'], train_args['noise_radius'])
+                               train_args['reg'], train_args['log_freq'], train_args['noise_radius'], train_args['use_dummy_pts'])
         self.tv_loss = nn.L1Loss(reduction='none').to(self.device)
         self.mse = nn.MSELoss().to(self.device)
         self.mae = nn.L1Loss().to(self.device)

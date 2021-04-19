@@ -5,7 +5,7 @@ from .bregman_pytorch import sinkhorn
 
 class OT_Loss(Module):
     def __init__(self, c_size, stride, norm_cood, device, logger,
-                 num_of_iter_in_ot=100, reg=10.0, log_freq=10000, noise_radius=0.0):
+                 num_of_iter_in_ot=100, reg=10.0, log_freq=10000, noise_radius=0.0, use_dummy_pts=False):
         super(OT_Loss, self).__init__()
         assert c_size % stride == 0
         self.it = 1
@@ -17,10 +17,11 @@ class OT_Loss(Module):
         self.reg = reg
         self.logger = logger
         self.noise_radius = noise_radius
-
+        self.use_dummy_pts = use_dummy_pts
         # coordinate is same to image space, set to constant since crop size is same
         self.cood = torch.arange(0, c_size, step=stride,
                                  dtype=torch.float32, device=device) + stride / 2
+        self.mesh = torch.stack(torch.meshgrid((self.cood.view([-1]),self.cood.view([-1])))).view([2,-1])
         self.cood_squared = self.cood*self.cood  # storing the precalculated matrix
         self.density_size = self.cood.size(0)
         self.cood.unsqueeze_(0)   # [1, #cood]
@@ -36,17 +37,20 @@ class OT_Loss(Module):
         ot_obj_values = torch.zeros([1]).to(self.device)
         wd = 0  # wasserstain distance
         for idx, im_points in enumerate(points):
-            if len(im_points) == 0 and torch.sum(unnormed_density[idx]) < 0.50:
+            neg = False
+            if not self.use_dummy_pts or (len(im_points) == 0 and torch.sum(unnormed_density[idx]) < 0.50):
                 continue
             if len(im_points) == 0:
-                im_points = torch.tensor(
-                    [
-                        [-0.5*self.c_size,1.5*self.c_size],
-                        [-0.5*self.c_size,-2.5*self.c_size],
-                        [1.5*self.c_size,-0.5*self.c_size],
-                        [-2.5*self.c_size,-0.5*self.c_size],
-                    ], device=self.device, dtype=torch.float32
-                )
+                neg = True
+                im_points = self.mesh.clone().detach()
+                # print("empty")
+                # im_points = torch.tensor(
+                #     [
+                #         [2*self.c_size,2*self.c_size],
+                #         [-self.c_size,2*self.c_size],
+                #         [2*self.c_size,-self.c_size],
+                #         [-self.c_size,-self.c_size],
+                #     ], device=self.device, dtype=torch.float32
             im_points = self.noise_radius*torch.randn_like(im_points)+im_points
             # compute l2 square distance, it should be source target distance. [#gt, #cood * #cood]
             if self.norm_cood:
