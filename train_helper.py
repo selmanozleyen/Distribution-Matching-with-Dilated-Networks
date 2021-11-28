@@ -10,7 +10,7 @@ from datetime import datetime
 from utils.data import ValSubset
 from torch.utils.data import random_split
 from random import random
-from models.vgg16_drnet import vgg16dres
+from models.ddm import ddm
 from losses.ot_loss import OT_Loss
 from utils.pytorch_utils import Save_Handle, AverageMeter
 from torch.utils.tensorboard import SummaryWriter
@@ -104,16 +104,10 @@ class Trainer(object):
                                           num_workers=train_args['num_workers'] * self.device_count,
                                           pin_memory=(True if x == 'train' else False))
                             for x in ['train', 'val']}
-        self.model = vgg16dres(map_location=self.device)
+        self.model = ddm(map_location=self.device)
         self.model.to(self.device)
-        # for p in self.model.features.parameters():
-        #     p.requires_grad = True
         self.optimizer = optim.Adam(self.model.parameters(), lr=train_args['lr'],
                                     weight_decay=train_args['weight_decay'], amsgrad=False)
-        # for _, p in zip(range(10000), next(self.model.children()).children()):
-        #     p.requires_grad = False
-        #     print("freeze: ", p)
-        # print(self.optimizer.param_groups[0])
         self.start_epoch = 0
         self.ot_loss = OT_Loss(train_args['crop_size'], downsample_ratio,
                                train_args['norm_cood'], self.device, self.logger, train_args['num_of_iter_in_ot'],
@@ -179,14 +173,6 @@ class Trainer(object):
             wtv = self.train_args['wtv']
             drop = random() >= 0.5
             with torch.set_grad_enabled(True):
-                if drop:
-                    self.model.dl1.eval()
-                    self.model.dl1a.eval()
-                    self.model.dl2.eval()
-                    self.model.dl2a.eval()
-                    self.model.dl3.eval()
-                    self.model.dl3a.eval()
-
                 outputs, outputs_normed = self.model(inputs)
                 # Compute OT loss.
                 ot_loss, wd, ot_obj_value = self.ot_loss(outputs_normed, outputs, points)

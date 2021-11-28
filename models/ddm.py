@@ -96,7 +96,6 @@ class VGG(nn.Module):
 
 def conv2d_bn(in_channels, out_channels, kernel_size=3, padding=2, dilation=2):
     return nn.Sequential(
-        nn.Dropout(inplace=True),
         nn.Conv2d(in_channels, out_channels, kernel_size=kernel_size, padding=padding, dilation=dilation),
         nn.BatchNorm2d(out_channels))
 
